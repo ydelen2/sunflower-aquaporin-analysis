@@ -52,7 +52,8 @@ verify*.py
 download_from_swan.ps1
 
 # Manuscript (separate submission)
-manuscript/
+manuscript/*
+!manuscript/Supplementary_Tables.xlsx
 
 # Old manuscript drafts
 manuscript/abstract.docx

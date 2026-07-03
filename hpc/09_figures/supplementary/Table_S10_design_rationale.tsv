@@ -1,0 +1,7 @@
+BioProject	Original_Design	Corrected_Design	Issue	Impact
+PRJNA869183	~stress	~stress_group	cold_0h/heat_0h are pre-treatment controls, not stress; drought_normal=CK; SA conditions mixed with NaCl	Cold +38%, Heat +56%, Drought 5869->83, Salt +139%, Rehydration NEW
+PRJNA797473	~condition	~genotype+condition	Genotype (K55/K58) not included as covariate	Drought 7d +23%, 14d +10%, 21d +22%
+PRJNA1041959	~condition	~genotype+tissue+condition	Genotype and tissue not included as covariates	PEG +14%
+PRJNA492303	~condition	~tissue+condition (unchanged)	Severe genotype imbalance (HA351 only in control); cannot fix	No change (documented as limitation)
+PRJNA908908	~genotype+condition	~genotype+condition (unchanged)	Sample labels verified from GEO GSE217468	No change (already correct)
+PRJNA850121	~condition_per_stage	~genotype_fixed+condition	G+M = SQ25 (susceptible); K = HZ2399 (resistant); originally coded as 3 separate genotypes	Stage A +52%, B +42%, C +57%, D +127%, E +35%

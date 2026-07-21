@@ -23,11 +23,12 @@ We identified 61 aquaporin genes (71 protein isoforms) in the sunflower genome (
 ├── hpc/                       # HPC output data and results
 │   ├── 02_gene_family/        #   Gene family identification results
 │   ├── 04_expression/         #   WGCNA module membership and trait tables
-│   ├── 05_phylogenetics/      #   IQ-TREE consensus and ML tree files
-│   └── 09_figures/            #   Publication figures and supplementary tables
-│       ├── plots/             #     Main figures (Fig1-5) and supplementary (FigS1-S4)
-│       └── supplementary/     #     TSV source data for supplementary tables
-└── manuscript/                # Supplementary Tables (Excel)
+│   └── 05_phylogenetics/      #   IQ-TREE consensus and ML tree files
+└── tables_and_figures/        # All publication tables and figures
+    ├── figures/               #   Main figures (Fig 1-5, PDF + PNG)
+    ├── tables/                #   Main tables (Table 1-4, TSV)
+    ├── supplementary_figures/ #   Supplementary figures (Fig S1-S4, PDF + PNG)
+    └── supplementary_tables/  #   Supplementary tables (S1-S10, TSV + Excel)
 ```
 
 ## Figures

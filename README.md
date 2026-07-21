@@ -20,7 +20,7 @@ We identified 61 aquaporin genes (71 protein isoforms) in the sunflower genome (
 ├── 06_cis_elements/           # Promoter cis-element scanning
 ├── 07_synteny/                # MCScanX synteny analysis
 ├── config.sh                  # Shared configuration (paths, parameters)
-├── hpc/                       # HPC output data and results
+├── results/                       # Pipeline output data
 │   ├── 02_gene_family/        #   Gene family identification results
 │   ├── 04_expression/         #   WGCNA module membership and trait tables
 │   └── 05_phylogenetics/      #   IQ-TREE consensus and ML tree files

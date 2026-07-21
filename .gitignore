@@ -21,14 +21,14 @@
 *.RData
 
 # Large result files
-hpc/04_expression/results/deseq2/*/DEG_*.tsv
-hpc/04_expression/results/deseq2/*/normalized_counts.tsv
-hpc/04_expression/results/deseq2/*/plots/
-hpc/04_expression/results/deseq2/sample_metadata.tsv
+results/04_expression/results/deseq2/*/DEG_*.tsv
+results/04_expression/results/deseq2/*/normalized_counts.tsv
+results/04_expression/results/deseq2/*/plots/
+results/04_expression/results/deseq2/sample_metadata.tsv
 
 # SWAN export and verify data
-hpc/verify_data.tar.gz
-hpc/swan_export/
+results/verify_data.tar.gz
+results/swan_export/
 
 # Conda environments
 conda_envs/

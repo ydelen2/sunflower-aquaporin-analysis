@@ -7,7 +7,7 @@
 #SBATCH --output=/work/dweikat/ydelen2/aquaporin_study/logs/install_r_packages_%j.out
 #SBATCH --error=/work/dweikat/ydelen2/aquaporin_study/logs/install_r_packages_%j.err
 # =============================================================================
-# 02_install_r_packages.sh — Install R/Bioconductor packages to local library
+# 02_install_r_packages.sh - Install R/Bioconductor packages to local library
 # Submit: sbatch 02_install_r_packages.sh
 # =============================================================================
 set -euo pipefail
@@ -97,7 +97,7 @@ install_pkg <- function(pkg, lib) {
                              Ncpus = as.integer(Sys.getenv("SLURM_CPUS_PER_TASK", "4")))
         cat(sprintf("[OK] %s installed successfully\n", pkg))
     }, error = function(e) {
-        cat(sprintf("[FAIL] %s — %s\n", pkg, conditionMessage(e)))
+        cat(sprintf("[FAIL] %s - %s\n", pkg, conditionMessage(e)))
     })
 }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# config.sh — Central configuration for sunflower aquaporin gene family project
+# config.sh - Central configuration for sunflower aquaporin gene family project
 # SWAN HPC, University of Nebraska-Lincoln
 # Project: /work/dweikat/ydelen2/aquaporin_study
 # =============================================================================
@@ -39,7 +39,7 @@ export CONDA_ENV_NAME="aquaporin_env"
 export CONDA_ENV_PREFIX="${PROJ_DIR}/conda_envs/${CONDA_ENV_NAME}"
 
 # ---------------------------------------------------------------------------
-# Reference genome paths — HanXRQr2.0 (INRAE / NCBI GCF_002127325.2)
+# Reference genome paths - HanXRQr2.0 (INRAE / NCBI GCF_002127325.2)
 # ---------------------------------------------------------------------------
 export GENOME_FASTA="${REF_DIR}/sunflower/GCF_002127325.2_HanXRQr2.0_genomic.fna"
 export GENOME_GFF="${REF_DIR}/sunflower/GCF_002127325.2_HanXRQr2.0_genomic.gff"
@@ -55,31 +55,31 @@ export SLYC_PROT="${REF_DIR}/tomato/Slycopersicum_ITAG4_proteome.faa"
 export LSAT_PROT="${REF_DIR}/lettuce/Lsativa_v8_proteome.faa"
 
 # ---------------------------------------------------------------------------
-# SRA accession lists — one array per BioProject
+# SRA accession lists - one array per BioProject
 # ---------------------------------------------------------------------------
 
 # PRJNA869183: cold (4°C 8/16/32h), heat (39°C 4/8/16/32h), drought (PEG),
 #              salt (150mM NaCl); ~45 samples, seedling leaves
 declare -a SRA_PRJNA869183=(
-    # Cold 4°C — 8h (3 reps)
+    # Cold 4°C - 8h (3 reps)
     SRR21038001 SRR21038002 SRR21038003
-    # Cold 4°C — 16h (3 reps)
+    # Cold 4°C - 16h (3 reps)
     SRR21038004 SRR21038005 SRR21038006
-    # Cold 4°C — 32h (3 reps)
+    # Cold 4°C - 32h (3 reps)
     SRR21038007 SRR21038008 SRR21038009
-    # Heat 39°C — 4h (3 reps)
+    # Heat 39°C - 4h (3 reps)
     SRR21038010 SRR21038011 SRR21038012
-    # Heat 39°C — 8h (3 reps)
+    # Heat 39°C - 8h (3 reps)
     SRR21038013 SRR21038014 SRR21038015
-    # Heat 39°C — 16h (3 reps)
+    # Heat 39°C - 16h (3 reps)
     SRR21038016 SRR21038017 SRR21038018
-    # Heat 39°C — 32h (3 reps)
+    # Heat 39°C - 32h (3 reps)
     SRR21038019 SRR21038020 SRR21038021
     # Drought PEG (3 reps)
     SRR21038022 SRR21038023 SRR21038024
     # Salt 150mM NaCl (3 reps)
     SRR21038025 SRR21038026 SRR21038027
-    # Controls for each (3 reps each — cold, heat, drought, salt)
+    # Controls for each (3 reps each - cold, heat, drought, salt)
     SRR21038028 SRR21038029 SRR21038030
     SRR21038031 SRR21038032 SRR21038033
     SRR21038034 SRR21038035 SRR21038036
@@ -161,7 +161,7 @@ declare -a BIOPROJECTS=(
 )
 
 # ---------------------------------------------------------------------------
-# Module load commands — SWAN HPC available modules
+# Module load commands - SWAN HPC available modules
 # ---------------------------------------------------------------------------
 load_hisat2()       { module load hisat2/2.2;       }
 load_star()         { module load star/2.7.9a;      }

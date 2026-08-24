@@ -74,19 +74,19 @@ echo ""
 echo "[Step 1] Mapping protein IDs to gene/mRNA features in GFF3..."
 
 # NCBI GFF3 uses protein_id attribute on CDS features
-# We need to find gene → mRNA → CDS linkage
+# We need to find gene -> mRNA -> CDS linkage
 
 GENE_MAP="${WORK_DIR}/protein_to_gene_map.tsv"
 echo -e "protein_id\tgene_id\tmrna_id\tchromosome\tgene_start\tgene_end\tstrand" \
     > "${GENE_MAP}"
 
-# Build protein → gene mapping from GFF3
+# Build protein -> gene mapping from GFF3
 MAPPING_SCRIPT="${WORK_DIR}/map_protein_to_gene.py"
 cat > "${MAPPING_SCRIPT}" << 'PYEOF'
 #!/usr/bin/env python3
 """
 Map protein IDs from NCBI GFF3 to gene features.
-Handles GFF3 parent-child relationships: gene → mRNA → CDS (protein_id)
+Handles GFF3 parent-child relationships: gene -> mRNA -> CDS (protein_id)
 """
 import sys
 import re
@@ -110,13 +110,13 @@ def main():
         target_ids = set(line.strip() for line in f if line.strip())
 
     # Parse GFF3 in two passes:
-    # Pass 1: Build CDS protein_id → mRNA parent mapping
-    # Pass 2: Build mRNA → gene parent mapping
+    # Pass 1: Build CDS protein_id -> mRNA parent mapping
+    # Pass 2: Build mRNA -> gene parent mapping
 
-    cds_to_mrna = {}      # protein_id → mRNA_id
-    mrna_to_gene = {}     # mRNA_id → gene_id
-    gene_coords = {}      # gene_id → (chr, start, end, strand)
-    mrna_coords = {}      # mRNA_id → (chr, start, end, strand)
+    cds_to_mrna = {}      # protein_id -> mRNA_id
+    mrna_to_gene = {}     # mRNA_id -> gene_id
+    gene_coords = {}      # gene_id -> (chr, start, end, strand)
+    mrna_coords = {}      # mRNA_id -> (chr, start, end, strand)
 
     print(f"Parsing GFF3: {gff_file}", file=sys.stderr)
 
@@ -155,7 +155,7 @@ def main():
 
     print(f"  Genes: {len(gene_coords)}", file=sys.stderr)
     print(f"  mRNAs: {len(mrna_to_gene)}", file=sys.stderr)
-    print(f"  CDS→protein mappings: {len(cds_to_mrna)}", file=sys.stderr)
+    print(f"  CDS->protein mappings: {len(cds_to_mrna)}", file=sys.stderr)
 
     # Map protein IDs to genes
     found = 0
@@ -236,7 +236,7 @@ def main():
     gene_map_file = sys.argv[2]
     output_prefix = sys.argv[3]
 
-    # Load gene → protein mapping
+    # Load gene -> protein mapping
     gene_to_protein = {}
     mrna_ids = set()
     with open(gene_map_file) as f:
@@ -244,17 +244,17 @@ def main():
         for line in f:
             parts = line.strip().split('\t')
             if len(parts) >= 3:
-                gene_to_protein[parts[1]] = parts[0]  # gene_id → protein_id
+                gene_to_protein[parts[1]] = parts[0]  # gene_id -> protein_id
                 mrna_ids.add(parts[2])  # mRNA IDs
 
     target_genes = set(gene_to_protein.keys())
 
     # Parse GFF3: collect exon and CDS features for target genes
-    # Structure: gene → mRNA → exon/CDS
-    mrna_parent = {}    # mRNA_id → gene_id
-    exons = defaultdict(list)    # mRNA_id → [(start, end, strand), ...]
+    # Structure: gene -> mRNA -> exon/CDS
+    mrna_parent = {}    # mRNA_id -> gene_id
+    exons = defaultdict(list)    # mRNA_id -> [(start, end, strand), ...]
     cds_features = defaultdict(list)
-    gene_features = {}   # gene_id → (chr, start, end, strand)
+    gene_features = {}   # gene_id -> (chr, start, end, strand)
     utr5 = defaultdict(list)
     utr3 = defaultdict(list)
 

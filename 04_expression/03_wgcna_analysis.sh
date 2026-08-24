@@ -11,7 +11,7 @@
 
 ###############################################################################
 # 03_wgcna_analysis.sh
-# WGCNA co-expression network analysis — PRJNA869183 (4 stresses)
+# WGCNA co-expression network analysis - PRJNA869183 (4 stresses)
 ###############################################################################
 
 set -euo pipefail
@@ -66,7 +66,7 @@ cat("WGCNA version:", as.character(packageVersion("WGCNA")), "\n")
 cat("Threads:", 16, "\n\n")
 
 ###############################################################################
-# 1. Load data — PRJNA869183 project
+# 1. Load data - PRJNA869183 project
 ###############################################################################
 
 # Prefer PRJNA869183-specific DESeq2 output

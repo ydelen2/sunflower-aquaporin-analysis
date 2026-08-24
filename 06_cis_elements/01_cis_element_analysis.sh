@@ -59,7 +59,7 @@ SEQ_COUNT=$(grep -c '^>' "${PROMOTER_FA}")
 echo "Promoter sequences: ${SEQ_COUNT}"
 
 # ===================================================================
-# PART 1: Local motif scanning — known plant cis-elements
+# PART 1: Local motif scanning - known plant cis-elements
 # ===================================================================
 echo "[$(date '+%H:%M:%S')] Running local cis-element scan..."
 
@@ -71,9 +71,9 @@ Scan promoter FASTA sequences for known plant cis-regulatory elements
 using regex pattern matching on both strands.
 
 Outputs:
-  cis_elements_all.tsv       — every hit: gene, element, position, strand, sequence
-  cis_elements_counts.tsv    — gene x element count matrix
-  cis_elements_summary.tsv   — total counts per element type
+  cis_elements_all.tsv       - every hit: gene, element, position, strand, sequence
+  cis_elements_counts.tsv    - gene x element count matrix
+  cis_elements_summary.tsv   - total counts per element type
 """
 
 import sys
@@ -384,7 +384,7 @@ else
 fi
 
 # ===================================================================
-# PART 3: Visualization — R heatmap
+# PART 3: Visualization - R heatmap
 # ===================================================================
 echo ""
 echo "[$(date '+%H:%M:%S')] Generating heatmap visualizations..."

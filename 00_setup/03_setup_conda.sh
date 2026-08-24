@@ -7,7 +7,7 @@
 #SBATCH --output=/work/dweikat/ydelen2/aquaporin_study/logs/setup_conda_%j.out
 #SBATCH --error=/work/dweikat/ydelen2/aquaporin_study/logs/setup_conda_%j.err
 # =============================================================================
-# 03_setup_conda.sh — Create conda environment with Python tools
+# 03_setup_conda.sh - Create conda environment with Python tools
 # Submit: sbatch 03_setup_conda.sh
 # =============================================================================
 set -euo pipefail
@@ -29,7 +29,7 @@ eval "$(conda shell.bash hook)"
 # Remove existing environment if present (clean rebuild)
 # ---------------------------------------------------------------------------
 if conda env list | grep -q "${CONDA_ENV_PREFIX}"; then
-    log_warn "Existing environment found at ${CONDA_ENV_PREFIX} — removing"
+    log_warn "Existing environment found at ${CONDA_ENV_PREFIX} - removing"
     conda env remove --prefix "${CONDA_ENV_PREFIX}" --yes
 fi
 
@@ -59,25 +59,25 @@ conda activate "${CONDA_ENV_PREFIX}"
 
 log_step "Installing bioinformatics tools"
 
-# MCScanX — collinearity / synteny detection
+# MCScanX - collinearity / synteny detection
 conda install --yes -c bioconda mcscanx
 
 # JCVI (python library for MCScan-based synteny visualization)
 conda install --yes -c bioconda jcvi
 
-# AGAT — GFF/GTF manipulation toolkit
+# AGAT - GFF/GTF manipulation toolkit
 conda install --yes -c bioconda agat
 
-# KaKs_Calculator 2.0 — synonymous/nonsynonymous substitution rates
+# KaKs_Calculator 2.0 - synonymous/nonsynonymous substitution rates
 conda install --yes -c bioconda kaks-calculator
 
-# ParaAT — parallel alignment tool for Ka/Ks
+# ParaAT - parallel alignment tool for Ka/Ks
 conda install --yes -c bioconda paraat
 
-# SRA toolkit — for downloading FASTQ from NCBI
+# SRA toolkit - for downloading FASTQ from NCBI
 conda install --yes -c bioconda sra-tools
 
-# InterProScan helper (optional — large install, skip if HPC has module)
+# InterProScan helper (optional - large install, skip if HPC has module)
 # conda install --yes -c bioconda interproscan
 
 # ---------------------------------------------------------------------------

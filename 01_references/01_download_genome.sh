@@ -7,7 +7,7 @@
 #SBATCH --output=/work/dweikat/ydelen2/aquaporin_study/logs/download_genome_%j.out
 #SBATCH --error=/work/dweikat/ydelen2/aquaporin_study/logs/download_genome_%j.err
 # =============================================================================
-# 01_download_genome.sh — Download reference genomes and build HISAT2 index
+# 01_download_genome.sh - Download reference genomes and build HISAT2 index
 #
 # Downloads:
 #   1. Sunflower HanXRQr2.0 (NCBI GCF_002127325.2)
@@ -31,7 +31,7 @@ NCPUS="${SLURM_CPUS_PER_TASK:-16}"
 # ---------------------------------------------------------------------------
 NCBI_FTP="https://ftp.ncbi.nlm.nih.gov/genomes/all"
 
-# Sunflower HanXRQr2.0 — GCF_002127325.2
+# Sunflower HanXRQr2.0 - GCF_002127325.2
 SUNFLOWER_BASE="${NCBI_FTP}/GCF/002/127/325/GCF_002127325.2_HanXRQr2.0-SUNRISE"
 SUNFLOWER_FASTA="${SUNFLOWER_BASE}/GCF_002127325.2_HanXRQr2.0-SUNRISE_genomic.fna.gz"
 SUNFLOWER_GFF="${SUNFLOWER_BASE}/GCF_002127325.2_HanXRQr2.0-SUNRISE_genomic.gff.gz"
@@ -39,19 +39,19 @@ SUNFLOWER_PROT="${SUNFLOWER_BASE}/GCF_002127325.2_HanXRQr2.0-SUNRISE_protein.faa
 SUNFLOWER_CDS="${SUNFLOWER_BASE}/GCF_002127325.2_HanXRQr2.0-SUNRISE_cds_from_genomic.fna.gz"
 SUNFLOWER_MD5="${SUNFLOWER_BASE}/md5checksums.txt"
 
-# Arabidopsis thaliana TAIR10 — GCF_000001735.4
+# Arabidopsis thaliana TAIR10 - GCF_000001735.4
 ATHA_BASE="${NCBI_FTP}/GCF/000/001/735/GCF_000001735.4_TAIR10.1"
 ATHA_PROT_URL="${ATHA_BASE}/GCF_000001735.4_TAIR10.1_protein.faa.gz"
 
-# Rice Oryza sativa IRGSP-1.0 — GCF_001433935.1
+# Rice Oryza sativa IRGSP-1.0 - GCF_001433935.1
 OSAT_BASE="${NCBI_FTP}/GCF/001/433/935/GCF_001433935.1_IRGSP-1.0"
 OSAT_PROT_URL="${OSAT_BASE}/GCF_001433935.1_IRGSP-1.0_protein.faa.gz"
 
-# Tomato Solanum lycopersicum SL3.0 — GCF_000188115.5
+# Tomato Solanum lycopersicum SL3.0 - GCF_000188115.5
 SLYC_BASE="${NCBI_FTP}/GCF/000/188/115/GCF_000188115.5_SL3.1"
 SLYC_PROT_URL="${SLYC_BASE}/GCF_000188115.5_SL3.1_protein.faa.gz"
 
-# Lettuce Lactuca sativa v8 — GCF_002870075.4
+# Lettuce Lactuca sativa v8 - GCF_002870075.4
 LSAT_BASE="${NCBI_FTP}/GCF/002/870/075/GCF_002870075.4_Lsat_Salinas_v11"
 LSAT_PROT_URL="${LSAT_BASE}/GCF_002870075.4_Lsat_Salinas_v11_protein.faa.gz"
 
@@ -244,7 +244,7 @@ for feature in gene mRNA CDS exon; do
     printf "  %s: %d\n" "${feature}" "${count}"
 done
 
-# Clean up compressed files to save space (optional — uncomment if needed)
+# Clean up compressed files to save space (optional - uncomment if needed)
 # log_info "Cleaning up compressed files"
 # rm -f "${SF_DIR}"/*.gz "${ATHA_DIR}"/*.gz "${OSAT_DIR}"/*.gz \
 #        "${SLYC_DIR}"/*.gz "${LSAT_DIR}"/*.gz

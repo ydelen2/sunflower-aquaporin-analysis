@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# 01_create_dirs.sh — Create the full project directory structure
+# 01_create_dirs.sh - Create the full project directory structure
 # Run locally on SWAN login node (not a SLURM job)
 # =============================================================================
 set -euo pipefail

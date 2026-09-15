@@ -9,7 +9,9 @@ the two biotic stresses), the genes are split by element presence in the 2 kb
 promoter and by differential expression in that contrast (|log2FC| > 1,
 adjusted P < 0.05). A Fisher exact test gives the odds ratio; a Spearman
 correlation relates element copy number to |log2FC|. P values are adjusted
-with Benjamini-Hochberg over all tests.
+with Benjamini-Hochberg over all tests. The figure shows one row per tested
+pairing: DE fractions with and without the element, the log2 odds ratio with
+its 95% CI, and the Spearman rho.
 
 Inputs
   cis counts : 06_cis_elements/results/cis_elements_counts.tsv (one row per
@@ -201,38 +203,72 @@ print("tests:", len(results), "| Fisher q < 0.05:", sum(1 for r in results if r[
       "| Spearman q < 0.05:", sum(1 for r in results if r["spearman_q"] < 0.05))
 
 # ------------------------------------------------------------ figure
+# one row per tested pairing, grouped by element
+#   A  fraction of DE genes among genes with / without the element
+#   B  log2 odds ratio of DE given the element, 95% CI (Woolf, 0.5 continuity correction)
+#   C  Spearman rho between element copy number and |log2FC|
+import math
 elems = [e for e in PAIRINGS if e in elements]
-cons_all = [c for c in ["Cold", "Heat", "Drought_869", "Drought_7d", "Drought_14d", "Drought_21d", "PEG_72h",
-                        "Salt_NaCl", "Flooding", "Sclerotinia", "Orobanche_A", "Orobanche_B", "Orobanche_C",
-                        "Orobanche_D", "Orobanche_E"] if c in contrasts]
-mat = np.full((len(elems), len(cons_all)), np.nan)
-lab = {}
-for r in results:
-    i, j = elems.index(r["element"]), cons_all.index(r["contrast"])
-    o = r["odds_ratio"]
-    if np.isnan(o):
-        mat[i, j] = 0.0            # no contrast possible (element in all or no genes, or no DE genes)
-    elif o == 0:
-        mat[i, j] = -3.0
-    elif np.isinf(o):
-        mat[i, j] = 3.0
+CON_ORDER = ["Cold", "Heat", "Drought_869", "Drought_7d", "Drought_14d", "Drought_21d", "PEG_72h", "Salt_NaCl", "Flooding",
+             "Sclerotinia", "Orobanche_A", "Orobanche_B", "Orobanche_C", "Orobanche_D", "Orobanche_E"]
+XLAB = {"Drought_869": "Drought (PRJNA869183)", "Salt_NaCl": "Salt (NaCl)", "PEG_72h": "PEG 72 h", "Drought_7d": "Drought 7 d",
+        "Drought_14d": "Drought 14 d", "Drought_21d": "Drought 21 d"}
+COL = dict(zip(elems, plt.cm.Dark2.colors))
+rows = sorted(results, key=lambda r: (elems.index(r["element"]), CON_ORDER.index(r["contrast"])))
+
+def woolf(a, b, c, d):
+    a, b, c, d = [v + 0.5 for v in (a, b, c, d)]
+    return math.log2(a * d / (b * c)), 1.96 * math.sqrt(1 / a + 1 / b + 1 / c + 1 / d) / math.log(2)
+
+n = len(rows); y = np.arange(n)[::-1]
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 9.5), sharey=True, gridspec_kw=dict(width_ratios=[2.2, 1.6, 1.2], wspace=0.08))
+for i, r in enumerate(rows):
+    c = COL[r["element"]]; yy = y[i]
+    a, b, cc, d = r["present_DE"], r["present_notDE"], r["absent_DE"], r["absent_notDE"]
+    fp, fa = r["frac_DE_present"], r["frac_DE_absent"]
+    if not np.isnan(fp) and not np.isnan(fa):
+        ax1.plot([fa, fp], [yy, yy], color=c, lw=1.2, zorder=2)
+    if not np.isnan(fp):
+        ax1.scatter(fp, yy, s=34, color=c, edgecolor="black", linewidths=0.5, zorder=3)
+    if not np.isnan(fa):
+        ax1.scatter(fa, yy, s=34, facecolor="white", edgecolor=c, linewidths=1.2, zorder=3)
+    if np.isnan(r["odds_ratio"]) or (a + b) == 0 or (cc + d) == 0:
+        ax2.text(0, yy, "not estimable", ha="center", va="center", fontsize=6, color="#777777")
     else:
-        mat[i, j] = max(-3.0, min(3.0, np.log2(o)))
-    lab[(i, j)] = r
-fig, ax = plt.subplots(figsize=(0.62 * len(cons_all) + 2.6, 0.5 * len(elems) + 1.6))
-vmax = 3.0
-im = ax.imshow(mat, cmap="RdBu_r", vmin=-vmax, vmax=vmax, aspect="auto")
-for (i, j), r in lab.items():
-    txt = "%d/%d" % (r["present_DE"], r["present_DE"] + r["present_notDE"])
-    star = "*" if r["fisher_q"] < 0.05 else ("+" if r["fisher_p"] < 0.05 else "")
-    ax.text(j, i, txt + star, ha="center", va="center", fontsize=6.5)
-for i in range(len(elems)):
-    for j in range(len(cons_all)):
-        if np.isnan(mat[i, j]) and (i, j) not in lab:
-            ax.add_patch(plt.Rectangle((j - 0.5, i - 0.5), 1, 1, facecolor="#f0f0f0", edgecolor="none"))
-ax.set_xticks(range(len(cons_all))); XLAB = {"Drought_869": "Drought (PRJNA869183)", "Salt_NaCl": "Salt (NaCl)", "PEG_72h": "PEG 72 h", "Drought_7d": "Drought 7 d", "Drought_14d": "Drought 14 d", "Drought_21d": "Drought 21 d"}
-ax.set_xticklabels([XLAB.get(c, c.replace("_", " ")) for c in cons_all], rotation=60, ha="right", fontsize=7)
-ax.set_yticks(range(len(elems))); ax.set_yticklabels([ELEMENT_LABEL.get(e, e) for e in elems], fontsize=8)
-cb = fig.colorbar(im, ax=ax, fraction=0.03, pad=0.02); cb.set_label("log2 odds ratio, DE given element present (clipped at +/-3; 0 where not estimable)", fontsize=7); cb.ax.tick_params(labelsize=6)
+        lo, half = woolf(a, b, cc, d)
+        ax2.errorbar(lo, yy, xerr=half, fmt="o", color=c, ms=4, capsize=2, lw=1, zorder=3)
+        if r["fisher_q"] < 0.05:
+            ax2.text(lo, yy + 0.35, "*", ha="center", fontsize=8)
+    if not np.isnan(r["spearman_rho"]):
+        ax3.barh(yy, r["spearman_rho"], color=c, height=0.6, zorder=2)
+ax1.set_yticks(y)
+ax1.set_yticklabels(["%s  (%d | %d)" % (XLAB.get(r["contrast"], r["contrast"].replace("_", " ")), r["present_DE"] + r["present_notDE"],
+                                         r["absent_DE"] + r["absent_notDE"]) for r in rows], fontsize=7)
+start = 0
+for k_e, e in enumerate(elems):
+    k = sum(1 for r in rows if r["element"] == e)
+    if k == 0:
+        continue
+    top, bot = y[start] + 0.5, y[start + k - 1] - 0.5
+    if k_e % 2 == 0:
+        for ax in (ax1, ax2, ax3):
+            ax.axhspan(bot, top, color="#f2f2f2", zorder=0)
+    ax1.text(-0.52, (top + bot) / 2, ELEMENT_LABEL.get(e, e), transform=ax1.get_yaxis_transform(), ha="right", va="center",
+             fontsize=7.5, fontweight="bold", color=COL[e])
+    start += k
+ax1.tick_params(axis="y", pad=4, length=0)
+ax1.set_xlim(-0.02, 1.02); ax1.set_xlabel("Fraction of genes differentially expressed", fontsize=8)
+ax1.scatter([], [], s=34, color="#555555", edgecolor="black", label="genes with the element")
+ax1.scatter([], [], s=34, facecolor="white", edgecolor="#555555", linewidths=1.2, label="genes without the element")
+ax1.legend(fontsize=6.5, loc="lower right", frameon=False)
+ax1.set_title("A", loc="left", fontweight="bold")
+ax2.axvline(0, color="gray", lw=0.6, ls="--"); ax2.set_xlim(-5, 5)
+ax2.set_xlabel("log2 odds ratio of DE\ngiven the element (95% CI)", fontsize=8); ax2.set_title("B", loc="left", fontweight="bold")
+ax3.axvline(0, color="gray", lw=0.6, ls="--"); ax3.set_xlim(-0.5, 0.5)
+ax3.set_xlabel("Spearman rho\n(element copies vs |log2FC|)", fontsize=8); ax3.set_title("C", loc="left", fontweight="bold")
+for ax in (ax1, ax2, ax3):
+    ax.tick_params(axis="x", labelsize=7); ax.set_ylim(-0.7, n - 0.3)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
 fig.savefig(out_prefix + ".pdf", bbox_inches="tight"); fig.savefig(out_prefix + ".png", dpi=300, bbox_inches="tight")
 print("wrote", out_prefix + "_results.tsv and figure")

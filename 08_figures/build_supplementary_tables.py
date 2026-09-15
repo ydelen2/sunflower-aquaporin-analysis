@@ -124,7 +124,7 @@ for x in r:
     if x[0] == "PRJNA492303":
         x[1] = "~tissue + condition (46 of the 96 runs)"
         x[2] = "~genotype + tissue + age + condition (all 96 runs)"
-        x[3] = "The submitted analysis used an arbitrary block of 46 consecutive runs in which HA351 occurred only among controls; the experiment is balanced (2 genotypes x 2 treatments x 2 tissues x 3 ages x 4 replicates)"
+        x[3] = "The first analysis used an arbitrary block of 46 consecutive runs in which HA351 occurred only among controls; the experiment is balanced (2 genotypes x 2 treatments x 2 tissues x 3 ages x 4 replicates)"
         x[4] = "Flooding 1,671 -> %s genome-wide DEGs (%s up, %s down); aquaporin DEGs 5 -> 3" % (s[3], s[4], s[5])
 sheet("S3_Design_Rationale", "Table S3. DESeq2 design rationale and correction summary for all six BioProjects.", h, r)
 
@@ -132,9 +132,11 @@ sheet("S3_Design_Rationale", "Table S3. DESeq2 design rationale and correction s
 h, r = tsv(P("04_expression", "results", "aquaporin_expression_v2", "aquaporin_TPM_control_means.tsv"))
 n_lib = dict(zip(h, r[0])); r = r[1:]
 ratio = {(x[0], x[1]): x[4] for x in tsv(P("04_expression", "results", "aquaporin_expression_v2", "tissue_summary.tsv"))[1]}
-grp = h[1:]
+order = ["PRJNA869183_leaf", "PRJNA797473_leaf", "PRJNA908908_leaf", "PRJNA1041959_leaf", "PRJNA492303_leaf", "PRJNA1041959_root", "PRJNA492303_root", "PRJNA850121_root"]
+grp = [g for g in order if g in h] + [g for g in h[1:] if g not in order]
+idx = [h.index(g) for g in grp]
 hdr13 = ["gene_id", "product", "subfamily"] + ["%s (n=%s)" % (g, n_lib[g]) for g in grp] + ["log2_root_leaf_PRJNA1041959", "log2_root_leaf_PRJNA492303"]
-rows13 = [[x[0], L.short_name(s1.get(x[0], {}).get("product", "")), s1.get(x[0], {}).get("subfamily", "")] + x[1:] + [ratio.get((x[0], "PRJNA1041959"), ""), ratio.get((x[0], "PRJNA492303"), "")] for x in r]
+rows13 = [[x[0], L.short_name(s1.get(x[0], {}).get("product", "")), s1.get(x[0], {}).get("subfamily", "")] + [x[i] for i in idx] + [ratio.get((x[0], "PRJNA1041959"), ""), ratio.get((x[0], "PRJNA492303"), "")] for x in r]
 sheet("S13_Baseline_TPM", "Table S13. Mean TPM of the %d aquaporin genes in the control libraries (untreated and pre-treatment samples) of each BioProject and tissue, and the root/leaf log2 ratio of the control means in the two BioProjects that sampled both tissues (0.1 added to each mean before the ratio)." % len(rows13), hdr13, rows13)
 
 wb._sheets.sort(key=lambda ws: (int(re.match(r"S(\d+)", ws.title).group(1)), ws.title))

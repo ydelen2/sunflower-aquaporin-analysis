@@ -57,7 +57,8 @@ for ax, (title, proj, fn) in zip(axes.flat, PANELS):
     n_up = sum(1 for l, yy, g, s in labels if s and l > 0); n_dn = sum(1 for l, yy, g, s in labels if s and l < 0)
     ax.set_title(title, fontsize=9)
     ax.set_xlabel("log2 fold change", fontsize=8); ax.set_ylabel("-log10 adjusted P", fontsize=8); ax.tick_params(labelsize=7)
-    lim = max(6, np.percentile(np.abs(x), 99.9)); ax.set_xlim(-lim, lim)
+    # x limits: the bulk of the genome-wide points (99.9th percentile) but never clipping an aquaporin
+    lim = max(6, np.percentile(np.abs(x), 99.9), (max(abs(v) for v in ax_x) + 0.5) if ax_x else 0); ax.set_xlim(-lim, lim)
 fig.tight_layout()
 fig.savefig(L.fig_path("Fig4_volcano_plots.pdf")); fig.savefig(L.fig_path("Fig4_volcano_plots.png"), dpi=300)
 print("wrote Fig4_volcano_plots.pdf/.png")

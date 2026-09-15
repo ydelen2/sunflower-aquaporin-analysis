@@ -82,7 +82,7 @@ sbatch 03_rnaseq/06b_merge_counts_492303_v2.sh
 # 6. Expression analysis
 sbatch 04_expression/01_deseq2_analysis.sh           # DESeq2 per BioProject
 sbatch 04_expression/06_deseq2_492303_full_v2.sh     # flooding on all 96 runs, ~ genotype + tissue + age + condition
-sbatch 04_expression/02_aquaporin_expression_v2.sh   # aquaporin normalized counts and TPM
+sbatch 04_expression/02_aquaporin_expression_v2.sh   # aquaporin normalized counts and TPM (not tracked here)
 sbatch 04_expression/03_wgcna_analysis_v2.sh         # WGCNA on PRJNA869183
 sbatch 04_expression/04_aquaporin_deg_table_v2.sh    # aquaporin log2FC/padj matrix (Table S8)
 sbatch 04_expression/08_go_all_v2.sh                 # GO enrichment, 16 contrasts, one common universe

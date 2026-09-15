@@ -1,0 +1,10 @@
+element	consensus	genes_with_element	percent_of_genes	total_hits_all_promoters
+ABRE	ACGTG	71	81.6	211
+DRE_CRT	CCGAC	60	69.0	208
+W_box	TTGAC	86	98.9	408
+MBS	CAACTG/TAACTG	65	74.7	153
+HSE	AAAAAATTTC	3	3.4	3
+LTR	CCGAAA	46	52.9	148
+ARE	AAACCA	79	90.8	308
+STRE	AGGGG/CCCCT	74	85.1	550
+G_box	CACGTG	27	31.0	72

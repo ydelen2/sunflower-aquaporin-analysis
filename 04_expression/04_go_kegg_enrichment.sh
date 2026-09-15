@@ -14,7 +14,7 @@
 # GO/KEGG enrichment analysis for stress-specific DEGs
 ###############################################################################
 
-set -euo pipefail
+set -eo pipefail
 
 PROJ_DIR='/work/dweikat/ydelen2/aquaporin_study'
 EXPR_DIR="${PROJ_DIR}/04_expression"
@@ -27,7 +27,9 @@ echo "Start: $(date)"
 echo "Node: $(hostname)"
 
 module purge
-module load R/4.1
+module load miniforge/24.5
+eval "$(conda shell.bash hook)"
+conda activate /work/dweikat/ydelen2/aquaporin_study/conda_envs/aqp_env
 
 Rscript --no-save --no-restore - <<'RSCRIPT_EOF'
 

@@ -1,0 +1,36 @@
+Aquaporin Characterization Summary
+==================================================
+
+Total aquaporins: 71
+
+Subfamily distribution:
+  PIP_tentative       :  41
+  SIP                 :   2
+  SIP_tentative       :  20
+  TIP_tentative       :   1
+  XIP                 :   4
+  unclassified        :   3
+
+Molecular weight range: 20149 - 34056 Da
+Isoelectric point range: 4.63 - 9.70
+GRAVY range: 0.3121 - 0.9735
+Length range: 182 - 317 aa
+
+Stability: 69 stable, 2 unstable
+Proteins with 2 NPA motifs: 66/71
+
+ar/R selectivity filter diversity:
+  L/V/P/A        :  31
+  L/I/P/A        :  11
+  G/V/P/A        :   6
+  A/V/P/A        :   5
+  M/I/P/A        :   3
+  I/V/P/V        :   3
+  A/L/P/A        :   3
+  NA/NA/NA/NA    :   2
+  M/L/P/A        :   2
+  F/Y/P/A        :   1
+  G/L/P/A        :   1
+  A/M/P/A        :   1
+  A/I/P/A        :   1
+  V/I/P/V        :   1

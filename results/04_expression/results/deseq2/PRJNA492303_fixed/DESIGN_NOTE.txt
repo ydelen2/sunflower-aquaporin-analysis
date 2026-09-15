@@ -1,0 +1,3 @@
+PRJNA492303 full design: 96 runs, ~ genotype + tissue + age + condition
+contrast: condition flooding vs control
+run on 2026-09-15

@@ -1,10 +1,10 @@
-﻿Element	Function	Genes (n/61)	Percent	Total Hits
-W-box	WRKY binding (defense/stress)	61	100%	299
-ABRE	ABA responsive	51	84%	145
-DRE/CRT	Drought/cold responsive	41	67%	195
-MBS	MYB drought binding	47	77%	107
-LTR	Low temperature responsive	32	52%	121
-ARE	Anaerobic responsive	56	92%	235
-STRE	Stress responsive	54	89%	410
-G-box	Light responsive	20	33%	54
-HSE	Heat shock element	4	7%	7
+Element	Function	Genes (n/87)	% of genes	Total Hits
+W-box	WRKY binding (defense/stress)	86	99%	408
+ABRE	ABA responsive	71	82%	211
+DRE/CRT	Drought/cold responsive	60	69%	208
+MBS	MYB drought binding	65	75%	153
+LTR	Low temperature responsive	46	53%	148
+ARE	Anaerobic responsive	79	91%	308
+STRE	Stress responsive	74	85%	550
+G-box	Light responsive	27	31%	72
+HSE	Heat shock element	3	3%	3

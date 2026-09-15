@@ -1,0 +1,74 @@
+gene_id	product	subfamily	chromosome	n_contrasts	contrasts
+LOC110904457	probable aquaporin PIP2-4	PIP	Ha14	8	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;Drought_21d:down;Sclerotinia:up;Orobanche_B:down;Orobanche_E:down
+LOC110916097	probable aquaporin TIP-type	TIP	Ha16	8	Cold:up;Drought_7d:down;Drought_14d:down;PEG_72h:down;Sclerotinia:down;Orobanche_B:down;Orobanche_C:down;Orobanche_E:down
+LOC110868335	aquaporin PIP2-4	PIP	Ha7	7	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;Drought_21d:down;Orobanche_B:down;Orobanche_E:down
+LOC110868941	probable aquaporin PIP1-4	PIP	Ha7	7	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;Drought_21d:down;Orobanche_B:down;Orobanche_E:down
+LOC110886572	aquaporin TIP2-1	TIP	Ha10	7	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;PEG_72h:down;Sclerotinia:up;Orobanche_E:down
+LOC110908794	aquaporin PIP2-2	PIP	Ha7	7	Cold:up;Salt_NaCl:down;Drought_14d:down;Drought_21d:down;PEG_72h:down;Orobanche_B:down;Orobanche_E:down
+LOC110937328	aquaporin PIP1-3	PIP	Ha2	7	Heat:up;Drought_7d:down;Drought_14d:down;PEG_72h:down;Sclerotinia:up;Orobanche_D:down;Orobanche_E:down
+LOC110868334	aquaporin PIP2-1	PIP	Ha7	6	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_21d:down;Sclerotinia:up;Orobanche_B:down
+LOC110868884	probable aquaporin PIP2-5	PIP	Ha14	6	Cold:up;Heat:up;Salt_NaCl:up;Drought_7d:down;Drought_14d:down;PEG_72h:down
+LOC110875737	probable aquaporin TIP1-1	TIP	Ha1	6	Cold:up;Drought_7d:down;Drought_14d:down;Drought_21d:down;PEG_72h:down;Sclerotinia:down
+LOC110890809	aquaporin NIP1-1	NIP	Ha11	6	Cold:down;Heat:down;Drought_7d:down;Drought_14d:down;Orobanche_D:up;Orobanche_E:up
+LOC110899589	aquaporin PIP1-3	PIP	Ha13	6	Salt_NaCl:down;Drought_7d:down;Drought_14d:down;Drought_21d:down;Orobanche_B:down;Orobanche_E:down
+LOC110911072	aquaporin NIP2-1	NIP	Ha15	6	Cold:up;Drought_14d:down;Orobanche_B:up;Orobanche_C:up;Orobanche_D:up;Orobanche_E:up
+LOC110911761	aquaporin NIP1-1	NIP	Ha15	6	Cold:up;Heat:down;Drought_14d:down;Drought_21d:down;Orobanche_B:down;Orobanche_C:down
+LOC110939970	aquaporin TIP1-3	TIP	Ha5	6	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;Sclerotinia:up;Orobanche_E:down
+LOC110868358	aquaporin PIP2-4	PIP	Ha7	5	Cold:up;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;Drought_21d:down
+LOC110872551	aquaporin TIP1-3	TIP	Ha8	5	Cold:up;Drought_14d:down;Flooding:up;Sclerotinia:up;Orobanche_D:up
+LOC110873322	aquaporin NIP2-2	NIP	Ha8	5	Cold:up;Drought_7d:down;Drought_14d:down;Drought_21d:down;PEG_72h:down
+LOC110889695	probable aquaporin PIP2-5	PIP	Ha7	5	Salt_NaCl:down;Drought_14d:down;PEG_72h:down;Orobanche_C:down;Orobanche_E:down
+LOC110895309	probable aquaporin PIP2-8	PIP	Ha12	5	Salt_NaCl:up;Drought_7d:down;Drought_14d:down;PEG_72h:down;Orobanche_B:down
+LOC110897890	aquaporin PIP1-3	PIP	Ha13	5	Cold:up;Heat:up;Drought_14d:down;Drought_21d:down;PEG_72h:down
+LOC110898014	aquaporin TIP1-1	TIP	Ha13	5	Cold:up;Heat:down;Drought_7d:down;Drought_14d:down;PEG_72h:down
+LOC110898128	aquaporin SIP1-2	SIP	Ha13	5	Cold:up;Drought_7d:down;Drought_14d:down;Drought_21d:down;PEG_72h:down
+LOC110898466	aquaporin TIP4-1	TIP	Ha13	5	Cold:up;Drought_7d:down;Drought_14d:down;Drought_21d:down;PEG_72h:down
+LOC110899592	aquaporin PIP1-3	PIP	Ha13	5	Cold:up;Drought_7d:down;Drought_14d:down;Orobanche_B:down;Orobanche_E:down
+LOC110904451	probable aquaporin PIP2-4	PIP	Ha14	5	Cold:up;Drought_14d:down;Drought_21d:down;Orobanche_B:down;Orobanche_E:down
+LOC110904925	probable aquaporin PIP1-4	PIP	Ha14	5	Cold:up;Salt_NaCl:up;Drought_14d:up;Orobanche_B:down;Orobanche_E:down
+LOC110911125	aquaporin NIP2-1	NIP	Ha15	5	Heat:down;Salt_NaCl:up;Drought_7d:up;Drought_14d:up;Orobanche_B:up
+LOC110925968	aquaporin PIP2-7	PIP	Ha17	5	Cold:down;Salt_NaCl:down;Drought_7d:down;Drought_14d:down;PEG_72h:down
+LOC118479416	aquaporin TIP2-1-like	TIP	Ha9	5	Cold:up;Drought_7d:down;Drought_14d:down;PEG_72h:down;Orobanche_E:down
+LOC110868317	aquaporin PIP2-4	PIP	Ha7	4	Cold:up;Salt_NaCl:down;Drought_14d:down;Drought_21d:down
+LOC110875557	aquaporin PIP2-2	PIP	Ha1	4	Cold:down;Salt_NaCl:down;Drought_7d:down;Sclerotinia:up
+LOC110880175	aquaporin TIP2-1	TIP	Ha16	4	Cold:up;Drought_7d:down;Drought_14d:down;PEG_72h:down
+LOC110884546	aquaporin NIP2-2	NIP	Ha17	4	Cold:up;Heat:down;Drought_7d:down;Drought_14d:down
+LOC110886457	aquaporin NIP2-1	NIP	Ha15	4	Cold:up;Heat:down;Salt_NaCl:down;Drought_14d:down
+LOC110894233	aquaporin TIP2-1	TIP	Ha12	4	Salt_NaCl:down;Drought_7d:down;Drought_14d:down;PEG_72h:down
+LOC110899667	probable aquaporin TIP-type RB7-5A	TIP	Ha13	4	Drought_7d:down;Drought_21d:down;Orobanche_B:down;Orobanche_E:down
+LOC110904450	probable aquaporin PIP2-4	PIP	Ha14	4	Cold:up;Salt_NaCl:up;Drought_7d:down;Drought_14d:down
+LOC110908807	aquaporin PIP2-2-like	PIP	Ha7	4	Drought_7d:down;Drought_14d:down;Drought_21d:down;PEG_72h:down
+LOC110923973	aquaporin NIP2-2	NIP	Ha17	4	PEG_72h:down;Flooding:up;Orobanche_D:up;Orobanche_E:up
+LOC110926365	probable aquaporin NIP5-1	NIP	Ha17	4	Cold:up;Drought_7d:down;Drought_14d:down;Drought_21d:down
+LOC110937771	aquaporin TIP3-1	TIP	Ha16	4	Salt_NaCl:up;Drought_7d:up;Drought_14d:up;Drought_21d:up
+LOC110866810	aquaporin PIP2-4	PIP	Ha7	3	Heat:up;Drought_14d:up;Sclerotinia:up
+LOC110868323	probable aquaporin PIP2-4	PIP	Ha7	3	Cold:down;Sclerotinia:down;Orobanche_C:up
+LOC110877765	probable aquaporin NIP7-1	NIP	Ha9	3	Drought_7d:down;Drought_14d:down;Sclerotinia:down
+LOC110891299	aquaporin TIP1-1	TIP	Ha11	3	Cold:down;Drought_7d:down;Sclerotinia:down
+LOC110899654	probable aquaporin TIP-type RB7-5A	TIP	Ha13	3	Heat:down;Orobanche_B:down;Orobanche_E:down
+LOC110905693	probable aquaporin NIP-type	NIP	Ha14	3	Drought_14d:up;Drought_21d:up;Sclerotinia:down
+LOC110912639	probable aquaporin TIP3-2	TIP	Ha15	3	Drought_21d:down;PEG_72h:up;Flooding:up
+LOC110921506	probable aquaporin NIP5-1	NIP	Ha17	3	Cold:up;Drought_7d:down;Drought_14d:down
+LOC110930503	aquaporin PIP1-3	PIP	Ha3	3	Cold:up;Drought_21d:down;Orobanche_E:down
+LOC110937325	aquaporin PIP1-3	PIP	Ha2	3	Cold:up;Drought_21d:down;Sclerotinia:up
+LOC110941540	aquaporin NIP6-1	NIP	Ha5	3	Cold:up;Salt_NaCl:down;Drought_14d:down
+LOC110864409	aquaporin PIP1-1	PIP	Ha6	2	Cold:up;Orobanche_E:down
+LOC110873151	probable aquaporin TIP2-1	TIP	Ha8	2	Salt_NaCl:down;Drought_21d:down
+LOC110875755	aquaporin NIP1-1	NIP	Ha1	2	Salt_NaCl:up;Drought_14d:up
+LOC110878958	aquaporin SIP1-1	SIP	Ha1	2	Salt_NaCl:up;Drought_14d:up
+LOC110884547	aquaporin NIP2-1	NIP	Ha17	2	Cold:up;Drought_14d:down
+LOC110894830	aquaporin PIP2-1	PIP	Ha12	2	Salt_NaCl:up;Sclerotinia:down
+LOC110896719	probable aquaporin TIP1-2	TIP	Ha12	2	Drought_14d:up;Sclerotinia:up
+LOC110899653	probable aquaporin TIP-type RB7-5A	TIP	Ha13	2	Orobanche_B:down;Orobanche_E:down
+LOC110899655	probable aquaporin TIP-type	TIP	Ha13	2	Orobanche_B:down;Orobanche_E:down
+LOC110904303	aquaporin PIP2-2	PIP	Ha14	2	Cold:up;Drought_21d:down
+LOC110906290	probable aquaporin TIP5-1	TIP	Ha14	2	Cold:up;Drought_7d:up
+LOC110911759	aquaporin NIP1-1	NIP	Ha15	2	Orobanche_B:down;Orobanche_E:down
+LOC110930648	probable aquaporin TIP-type	TIP	Ha3	2	Cold:up;Orobanche_E:down
+LOC110938010	probable aquaporin SIP2-1	SIP	Ha4	2	Drought_7d:up;Sclerotinia:up
+LOC110872387	probable aquaporin NIP5-1	NIP	Ha6	1	Drought_7d:down
+LOC110884851	probable aquaporin SIP2-1	SIP	Ha10	1	Cold:up
+LOC110885224	aquaporin	TIP	Ha10	1	PEG_72h:up
+LOC110890906	aquaporin PIP2-7	PIP	Ha11	1	Sclerotinia:up
+LOC110916291	probable aquaporin TIP-type RB7-5A	TIP	Ha16	1	Orobanche_E:down
+LOC110927047	aquaporin TIP1-1	TIP	Ha2	1	Drought_21d:down

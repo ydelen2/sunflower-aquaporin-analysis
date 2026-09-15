@@ -15,7 +15,7 @@
 # Handles multiple BioProjects with separate analysis per project
 ###############################################################################
 
-set -euo pipefail
+set -eo pipefail
 
 PROJ_DIR='/work/dweikat/ydelen2/aquaporin_study'
 EXPR_DIR="${PROJ_DIR}/04_expression"
@@ -32,7 +32,9 @@ echo "Node: $(hostname)"
 echo "Job ID: ${SLURM_JOB_ID:-local}"
 
 module purge
-module load R/4.1
+module load miniforge/24.5
+eval "$(conda shell.bash hook)"
+conda activate /work/dweikat/ydelen2/aquaporin_study/conda_envs/aqp_env
 
 # ---- Embedded R script ----
 Rscript --no-save --no-restore - <<'RSCRIPT_EOF'
@@ -67,7 +69,7 @@ cat("Threads:", parallel::detectCores(), "\n\n")
 
 # Register parallel backend for DESeq2
 BPPARAM <- BiocParallel::MulticoreParam(workers = 8)
-register(BPPARAM)
+BiocParallel::register(BPPARAM)
 
 ###############################################################################
 # 1. Load featureCounts output
@@ -192,7 +194,7 @@ cat("Metadata:\n")
 print(str(coldata))
 
 # Determine condition column (stress/condition)
-cond_col <- if ("stress" %in% colnames(coldata)) "stress" else
+cond_col <- if ("condition" %in% colnames(coldata)) "condition" else
             if ("condition" %in% colnames(coldata)) "condition" else
             stop("Metadata must have 'stress' or 'condition' column")
 
@@ -381,13 +383,13 @@ run_deseq2_project <- function(counts, metadata, project_id, cond_col) {
 # 4. Run per BioProject
 ###############################################################################
 
-projects <- unique(coldata$bioproject)
+projects <- unique(coldata$project_id)
 cat("\nBioProjects detected:", paste(projects, collapse = ", "), "\n\n")
 
 project_results <- list()
 
 for (proj in projects) {
-    idx <- coldata$bioproject == proj
+    idx <- coldata$project_id == proj
     proj_counts <- count_mat[, idx]
     proj_meta   <- coldata[idx, , drop = FALSE]
 

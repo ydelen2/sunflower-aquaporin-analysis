@@ -1,0 +1,290 @@
+gene_id	product	subfamily	contrast	log2FC	padj	direction
+LOC110875755	aquaporin NIP1-1	NIP	Salt_NaCl	1.733	0.000359	up
+LOC110875755	aquaporin NIP1-1	NIP	Drought_14d	2.127	0.0015	up
+LOC110875737	probable aquaporin TIP1-1	TIP	Cold	1.798	0.000227	up
+LOC110875737	probable aquaporin TIP1-1	TIP	Drought_7d	-2.518	0.00198	down
+LOC110875737	probable aquaporin TIP1-1	TIP	Drought_14d	-3.924	3.08e-07	down
+LOC110875737	probable aquaporin TIP1-1	TIP	Drought_21d	-2.968	0.000449	down
+LOC110875737	probable aquaporin TIP1-1	TIP	PEG_72h	-1.499	0.00463	down
+LOC110875737	probable aquaporin TIP1-1	TIP	Sclerotinia	-6.078	7.16e-30	down
+LOC110875557	aquaporin PIP2-2	PIP	Cold	-1.991	1.49e-10	down
+LOC110875557	aquaporin PIP2-2	PIP	Salt_NaCl	-1.761	6.74e-08	down
+LOC110875557	aquaporin PIP2-2	PIP	Drought_7d	-1.512	0.000108	down
+LOC110875557	aquaporin PIP2-2	PIP	Sclerotinia	1.220	3.85e-06	up
+LOC110878958	aquaporin SIP1-1	SIP	Salt_NaCl	1.208	1.16e-05	up
+LOC110878958	aquaporin SIP1-1	SIP	Drought_14d	1.740	0.000209	up
+LOC110937325	aquaporin PIP1-3	PIP	Cold	2.249	2.91e-10	up
+LOC110937325	aquaporin PIP1-3	PIP	Drought_21d	-2.994	0.000309	down
+LOC110937325	aquaporin PIP1-3	PIP	Sclerotinia	3.726	1.72e-33	up
+LOC110937328	aquaporin PIP1-3	PIP	Heat	1.819	0.0396	up
+LOC110937328	aquaporin PIP1-3	PIP	Drought_7d	-2.405	0.00781	down
+LOC110937328	aquaporin PIP1-3	PIP	Drought_14d	-1.947	0.0248	down
+LOC110937328	aquaporin PIP1-3	PIP	PEG_72h	-2.381	1.18e-07	down
+LOC110937328	aquaporin PIP1-3	PIP	Sclerotinia	4.847	1.1e-09	up
+LOC110937328	aquaporin PIP1-3	PIP	Orobanche_D	-1.304	0.00444	down
+LOC110937328	aquaporin PIP1-3	PIP	Orobanche_E	-1.752	4.79e-05	down
+LOC110927047	aquaporin TIP1-1	TIP	Drought_21d	-1.152	0.0156	down
+LOC110930503	aquaporin PIP1-3	PIP	Cold	1.960	4.86e-13	up
+LOC110930503	aquaporin PIP1-3	PIP	Drought_21d	-1.308	0.000943	down
+LOC110930503	aquaporin PIP1-3	PIP	Orobanche_E	-1.073	1.21e-06	down
+LOC110930648	probable aquaporin TIP-type	TIP	Cold	1.842	0.00481	up
+LOC110930648	probable aquaporin TIP-type	TIP	Orobanche_E	-1.581	0.00134	down
+LOC110938010	probable aquaporin SIP2-1	SIP	Drought_7d	1.437	0.0217	up
+LOC110938010	probable aquaporin SIP2-1	SIP	Sclerotinia	3.508	0.022	up
+LOC110939970	aquaporin TIP1-3	TIP	Cold	2.025	1.33e-08	up
+LOC110939970	aquaporin TIP1-3	TIP	Salt_NaCl	-1.426	0.00247	down
+LOC110939970	aquaporin TIP1-3	TIP	Drought_7d	-1.960	0.0239	down
+LOC110939970	aquaporin TIP1-3	TIP	Drought_14d	-2.377	0.00309	down
+LOC110939970	aquaporin TIP1-3	TIP	Sclerotinia	8.194	6.65e-20	up
+LOC110939970	aquaporin TIP1-3	TIP	Orobanche_E	-21.872	1.58e-08	down
+LOC110941540	aquaporin NIP6-1	NIP	Cold	3.057	4.16e-09	up
+LOC110941540	aquaporin NIP6-1	NIP	Salt_NaCl	-1.093	0.00457	down
+LOC110941540	aquaporin NIP6-1	NIP	Drought_14d	-2.352	5.53e-05	down
+LOC110864409	aquaporin PIP1-1	PIP	Cold	1.837	0.000287	up
+LOC110864409	aquaporin PIP1-1	PIP	Orobanche_E	-1.012	3.75e-06	down
+LOC110872387	probable aquaporin NIP5-1	NIP	Drought_7d	-1.282	0.0327	down
+LOC110889695	probable aquaporin PIP2-5	PIP	Salt_NaCl	-1.155	0.00188	down
+LOC110889695	probable aquaporin PIP2-5	PIP	Drought_14d	-3.145	2.38e-06	down
+LOC110889695	probable aquaporin PIP2-5	PIP	PEG_72h	-1.243	4.23e-05	down
+LOC110889695	probable aquaporin PIP2-5	PIP	Orobanche_C	-1.437	0.00653	down
+LOC110889695	probable aquaporin PIP2-5	PIP	Orobanche_E	-1.511	0.00267	down
+LOC110866810	aquaporin PIP2-4	PIP	Heat	2.158	0.00423	up
+LOC110866810	aquaporin PIP2-4	PIP	Drought_14d	1.793	0.0495	up
+LOC110866810	aquaporin PIP2-4	PIP	Sclerotinia	4.616	0.00145	up
+LOC110868334	aquaporin PIP2-1	PIP	Cold	2.670	0.000218	up
+LOC110868334	aquaporin PIP2-1	PIP	Salt_NaCl	-2.774	8.99e-09	down
+LOC110868334	aquaporin PIP2-1	PIP	Drought_7d	-1.431	0.00239	down
+LOC110868334	aquaporin PIP2-1	PIP	Drought_21d	-2.292	1.46e-06	down
+LOC110868334	aquaporin PIP2-1	PIP	Sclerotinia	2.125	0.000252	up
+LOC110868334	aquaporin PIP2-1	PIP	Orobanche_B	-3.918	3.07e-10	down
+LOC110868335	aquaporin PIP2-4	PIP	Cold	2.388	2.02e-05	up
+LOC110868335	aquaporin PIP2-4	PIP	Salt_NaCl	-3.666	3.56e-05	down
+LOC110868335	aquaporin PIP2-4	PIP	Drought_7d	-1.891	0.0145	down
+LOC110868335	aquaporin PIP2-4	PIP	Drought_14d	-2.806	9.2e-05	down
+LOC110868335	aquaporin PIP2-4	PIP	Drought_21d	-2.601	0.000956	down
+LOC110868335	aquaporin PIP2-4	PIP	Orobanche_B	-4.064	8.79e-07	down
+LOC110868335	aquaporin PIP2-4	PIP	Orobanche_E	-2.037	0.0109	down
+LOC110868323	probable aquaporin PIP2-4	PIP	Cold	-2.779	0.00661	down
+LOC110868323	probable aquaporin PIP2-4	PIP	Sclerotinia	-4.176	0.0104	down
+LOC110868323	probable aquaporin PIP2-4	PIP	Orobanche_C	2.077	0.0406	up
+LOC110868317	aquaporin PIP2-4	PIP	Cold	3.705	0.000365	up
+LOC110868317	aquaporin PIP2-4	PIP	Salt_NaCl	-3.155	0.0164	down
+LOC110868317	aquaporin PIP2-4	PIP	Drought_14d	-1.004	0.0474	down
+LOC110868317	aquaporin PIP2-4	PIP	Drought_21d	-1.958	0.000202	down
+LOC110868358	aquaporin PIP2-4	PIP	Cold	2.337	1.94e-07	up
+LOC110868358	aquaporin PIP2-4	PIP	Salt_NaCl	-3.332	7.8e-26	down
+LOC110868358	aquaporin PIP2-4	PIP	Drought_7d	-1.462	0.00798	down
+LOC110868358	aquaporin PIP2-4	PIP	Drought_14d	-3.362	3.23e-11	down
+LOC110868358	aquaporin PIP2-4	PIP	Drought_21d	-2.815	2.37e-07	down
+LOC110908794	aquaporin PIP2-2	PIP	Cold	2.116	0.00236	up
+LOC110908794	aquaporin PIP2-2	PIP	Salt_NaCl	-1.666	9.28e-07	down
+LOC110908794	aquaporin PIP2-2	PIP	Drought_14d	-3.047	2.2e-13	down
+LOC110908794	aquaporin PIP2-2	PIP	Drought_21d	-1.439	0.00228	down
+LOC110908794	aquaporin PIP2-2	PIP	PEG_72h	-1.051	0.000408	down
+LOC110908794	aquaporin PIP2-2	PIP	Orobanche_B	-1.093	0.0321	down
+LOC110908794	aquaporin PIP2-2	PIP	Orobanche_E	-1.267	0.00708	down
+LOC110908807	aquaporin PIP2-2-like	PIP	Drought_7d	-5.157	0.000914	down
+LOC110908807	aquaporin PIP2-2-like	PIP	Drought_14d	-3.535	0.0121	down
+LOC110908807	aquaporin PIP2-2-like	PIP	Drought_21d	-5.273	0.00134	down
+LOC110908807	aquaporin PIP2-2-like	PIP	PEG_72h	-1.172	8.16e-06	down
+LOC110868941	probable aquaporin PIP1-4	PIP	Cold	1.487	2.11e-05	up
+LOC110868941	probable aquaporin PIP1-4	PIP	Salt_NaCl	-2.171	1.09e-11	down
+LOC110868941	probable aquaporin PIP1-4	PIP	Drought_7d	-1.442	0.00134	down
+LOC110868941	probable aquaporin PIP1-4	PIP	Drought_14d	-1.540	0.000347	down
+LOC110868941	probable aquaporin PIP1-4	PIP	Drought_21d	-2.478	4.5e-08	down
+LOC110868941	probable aquaporin PIP1-4	PIP	Orobanche_B	-1.349	0.0164	down
+LOC110868941	probable aquaporin PIP1-4	PIP	Orobanche_E	-1.714	0.000832	down
+LOC110872551	aquaporin TIP1-3	TIP	Cold	6.633	2.79e-05	up
+LOC110872551	aquaporin TIP1-3	TIP	Drought_14d	-4.985	0.00155	down
+LOC110872551	aquaporin TIP1-3	TIP	Flooding	1.584	0.000555	up
+LOC110872551	aquaporin TIP1-3	TIP	Sclerotinia	4.118	1.02e-07	up
+LOC110872551	aquaporin TIP1-3	TIP	Orobanche_D	3.052	0.0094	up
+LOC110873151	probable aquaporin TIP2-1	TIP	Salt_NaCl	-2.037	0.0222	down
+LOC110873151	probable aquaporin TIP2-1	TIP	Drought_21d	-2.336	0.00016	down
+LOC110873322	aquaporin NIP2-2	NIP	Cold	4.901	0.0265	up
+LOC110873322	aquaporin NIP2-2	NIP	Drought_7d	-5.589	0.00389	down
+LOC110873322	aquaporin NIP2-2	NIP	Drought_14d	-6.537	0.000367	down
+LOC110873322	aquaporin NIP2-2	NIP	Drought_21d	-5.011	0.0139	down
+LOC110873322	aquaporin NIP2-2	NIP	PEG_72h	-1.968	5.68e-06	down
+LOC110877765	probable aquaporin NIP7-1	NIP	Drought_7d	-1.132	0.0206	down
+LOC110877765	probable aquaporin NIP7-1	NIP	Drought_14d	-1.127	0.0128	down
+LOC110877765	probable aquaporin NIP7-1	NIP	Sclerotinia	-3.287	0.000111	down
+LOC118479416	aquaporin TIP2-1-like	TIP	Cold	2.322	1.04e-10	up
+LOC118479416	aquaporin TIP2-1-like	TIP	Drought_7d	-1.608	0.00229	down
+LOC118479416	aquaporin TIP2-1-like	TIP	Drought_14d	-3.650	9.9e-14	down
+LOC118479416	aquaporin TIP2-1-like	TIP	PEG_72h	-1.273	3.1e-08	down
+LOC118479416	aquaporin TIP2-1-like	TIP	Orobanche_E	-1.345	1.62e-05	down
+LOC110884851	probable aquaporin SIP2-1	SIP	Cold	1.219	5.79e-06	up
+LOC110885224	aquaporin	TIP	PEG_72h	1.793	0.0145	up
+LOC110886572	aquaporin TIP2-1	TIP	Cold	1.280	0.00194	up
+LOC110886572	aquaporin TIP2-1	TIP	Salt_NaCl	-3.353	3.23e-07	down
+LOC110886572	aquaporin TIP2-1	TIP	Drought_7d	-4.199	6.65e-05	down
+LOC110886572	aquaporin TIP2-1	TIP	Drought_14d	-6.583	2.92e-10	down
+LOC110886572	aquaporin TIP2-1	TIP	PEG_72h	-3.531	2.03e-08	down
+LOC110886572	aquaporin TIP2-1	TIP	Sclerotinia	1.472	0.00199	up
+LOC110886572	aquaporin TIP2-1	TIP	Orobanche_E	-1.646	1.98e-06	down
+LOC110890809	aquaporin NIP1-1	NIP	Cold	-1.751	6.73e-07	down
+LOC110890809	aquaporin NIP1-1	NIP	Heat	-2.186	4.42e-06	down
+LOC110890809	aquaporin NIP1-1	NIP	Drought_7d	-1.457	9.36e-05	down
+LOC110890809	aquaporin NIP1-1	NIP	Drought_14d	-1.131	0.00122	down
+LOC110890809	aquaporin NIP1-1	NIP	Orobanche_D	2.228	0.0266	up
+LOC110890809	aquaporin NIP1-1	NIP	Orobanche_E	2.007	0.0448	up
+LOC110890906	aquaporin PIP2-7	PIP	Sclerotinia	3.305	1.44e-13	up
+LOC110891299	aquaporin TIP1-1	TIP	Cold	-3.314	0.00592	down
+LOC110891299	aquaporin TIP1-1	TIP	Drought_7d	-2.608	0.0438	down
+LOC110891299	aquaporin TIP1-1	TIP	Sclerotinia	-1.596	2.12e-12	down
+LOC110894233	aquaporin TIP2-1	TIP	Salt_NaCl	-1.444	0.0179	down
+LOC110894233	aquaporin TIP2-1	TIP	Drought_7d	-4.245	2.03e-05	down
+LOC110894233	aquaporin TIP2-1	TIP	Drought_14d	-7.183	4.06e-13	down
+LOC110894233	aquaporin TIP2-1	TIP	PEG_72h	-3.699	2.79e-08	down
+LOC110894830	aquaporin PIP2-1	PIP	Salt_NaCl	2.070	3.75e-08	up
+LOC110894830	aquaporin PIP2-1	PIP	Sclerotinia	-1.046	0.0214	down
+LOC110896719	probable aquaporin TIP1-2	TIP	Drought_14d	2.482	0.016	up
+LOC110896719	probable aquaporin TIP1-2	TIP	Sclerotinia	4.297	0.0115	up
+LOC110895309	probable aquaporin PIP2-8	PIP	Salt_NaCl	1.034	0.0164	up
+LOC110895309	probable aquaporin PIP2-8	PIP	Drought_7d	-2.142	0.0017	down
+LOC110895309	probable aquaporin PIP2-8	PIP	Drought_14d	-2.290	0.000443	down
+LOC110895309	probable aquaporin PIP2-8	PIP	PEG_72h	-2.397	1.3e-06	down
+LOC110895309	probable aquaporin PIP2-8	PIP	Orobanche_B	-1.360	0.00112	down
+LOC110897890	aquaporin PIP1-3	PIP	Cold	2.358	1.55e-28	up
+LOC110897890	aquaporin PIP1-3	PIP	Heat	1.484	0.00197	up
+LOC110897890	aquaporin PIP1-3	PIP	Drought_14d	-1.096	3.48e-07	down
+LOC110897890	aquaporin PIP1-3	PIP	Drought_21d	-1.328	5.99e-09	down
+LOC110897890	aquaporin PIP1-3	PIP	PEG_72h	-1.324	1.56e-05	down
+LOC110898014	aquaporin TIP1-1	TIP	Cold	1.789	1.56e-06	up
+LOC110898014	aquaporin TIP1-1	TIP	Heat	-1.801	0.018	down
+LOC110898014	aquaporin TIP1-1	TIP	Drought_7d	-2.778	9.38e-06	down
+LOC110898014	aquaporin TIP1-1	TIP	Drought_14d	-3.370	2.72e-08	down
+LOC110898014	aquaporin TIP1-1	TIP	PEG_72h	-2.161	0.00133	down
+LOC110898128	aquaporin SIP1-2	SIP	Cold	4.310	0.00473	up
+LOC110898128	aquaporin SIP1-2	SIP	Drought_7d	-3.583	0.000194	down
+LOC110898128	aquaporin SIP1-2	SIP	Drought_14d	-5.095	4.52e-07	down
+LOC110898128	aquaporin SIP1-2	SIP	Drought_21d	-2.666	0.00717	down
+LOC110898128	aquaporin SIP1-2	SIP	PEG_72h	-1.232	0.00113	down
+LOC110898466	aquaporin TIP4-1	TIP	Cold	3.322	2.58e-05	up
+LOC110898466	aquaporin TIP4-1	TIP	Drought_7d	-4.461	2.08e-06	down
+LOC110898466	aquaporin TIP4-1	TIP	Drought_14d	-5.840	2.31e-10	down
+LOC110898466	aquaporin TIP4-1	TIP	Drought_21d	-2.843	0.00595	down
+LOC110898466	aquaporin TIP4-1	TIP	PEG_72h	-1.944	0.000217	down
+LOC110899589	aquaporin PIP1-3	PIP	Salt_NaCl	-5.480	0.012	down
+LOC110899589	aquaporin PIP1-3	PIP	Drought_7d	-3.072	0.00064	down
+LOC110899589	aquaporin PIP1-3	PIP	Drought_14d	-2.758	0.000592	down
+LOC110899589	aquaporin PIP1-3	PIP	Drought_21d	-1.797	0.0419	down
+LOC110899589	aquaporin PIP1-3	PIP	Orobanche_B	-2.291	0.00701	down
+LOC110899589	aquaporin PIP1-3	PIP	Orobanche_E	-2.339	0.00332	down
+LOC110899592	aquaporin PIP1-3	PIP	Cold	1.185	0.0158	up
+LOC110899592	aquaporin PIP1-3	PIP	Drought_7d	-1.147	0.011	down
+LOC110899592	aquaporin PIP1-3	PIP	Drought_14d	-1.687	6.13e-05	down
+LOC110899592	aquaporin PIP1-3	PIP	Orobanche_B	-1.881	0.0134	down
+LOC110899592	aquaporin PIP1-3	PIP	Orobanche_E	-2.198	0.0017	down
+LOC110899655	probable aquaporin TIP-type	TIP	Orobanche_B	-2.181	3.63e-05	down
+LOC110899655	probable aquaporin TIP-type	TIP	Orobanche_E	-2.029	6.7e-05	down
+LOC110899654	probable aquaporin TIP-type RB7-5A	TIP	Heat	-3.175	0.0285	down
+LOC110899654	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_B	-2.305	2.6e-06	down
+LOC110899654	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_E	-2.213	3.32e-06	down
+LOC110899653	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_B	-1.224	0.0155	down
+LOC110899653	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_E	-1.226	0.00972	down
+LOC110899667	probable aquaporin TIP-type RB7-5A	TIP	Drought_7d	-4.540	0.00132	down
+LOC110899667	probable aquaporin TIP-type RB7-5A	TIP	Drought_21d	-3.550	0.00967	down
+LOC110899667	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_B	-1.268	0.0112	down
+LOC110899667	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_E	-1.258	0.0073	down
+LOC110905693	probable aquaporin NIP-type	NIP	Drought_14d	4.258	0.000112	up
+LOC110905693	probable aquaporin NIP-type	NIP	Drought_21d	3.417	0.0063	up
+LOC110905693	probable aquaporin NIP-type	NIP	Sclerotinia	-1.801	1.66e-06	down
+LOC110904303	aquaporin PIP2-2	PIP	Cold	1.706	0.000752	up
+LOC110904303	aquaporin PIP2-2	PIP	Drought_21d	-1.005	1.87e-05	down
+LOC110904457	probable aquaporin PIP2-4	PIP	Cold	3.127	1.41e-06	up
+LOC110904457	probable aquaporin PIP2-4	PIP	Salt_NaCl	-2.186	1.06e-08	down
+LOC110904457	probable aquaporin PIP2-4	PIP	Drought_7d	-1.212	0.00926	down
+LOC110904457	probable aquaporin PIP2-4	PIP	Drought_14d	-2.880	1.41e-11	down
+LOC110904457	probable aquaporin PIP2-4	PIP	Drought_21d	-1.720	0.000279	down
+LOC110904457	probable aquaporin PIP2-4	PIP	Sclerotinia	1.161	0.0047	up
+LOC110904457	probable aquaporin PIP2-4	PIP	Orobanche_B	-1.612	9.98e-07	down
+LOC110904457	probable aquaporin PIP2-4	PIP	Orobanche_E	-1.455	6.52e-06	down
+LOC110904450	probable aquaporin PIP2-4	PIP	Cold	3.198	3.61e-08	up
+LOC110904450	probable aquaporin PIP2-4	PIP	Salt_NaCl	1.468	0.014	up
+LOC110904450	probable aquaporin PIP2-4	PIP	Drought_7d	-1.368	0.00183	down
+LOC110904450	probable aquaporin PIP2-4	PIP	Drought_14d	-1.534	0.000245	down
+LOC110904451	probable aquaporin PIP2-4	PIP	Cold	3.242	3.03e-10	up
+LOC110904451	probable aquaporin PIP2-4	PIP	Drought_14d	-1.962	0.00137	down
+LOC110904451	probable aquaporin PIP2-4	PIP	Drought_21d	-1.465	0.0355	down
+LOC110904451	probable aquaporin PIP2-4	PIP	Orobanche_B	-1.398	1.47e-05	down
+LOC110904451	probable aquaporin PIP2-4	PIP	Orobanche_E	-1.002	0.00184	down
+LOC110868884	probable aquaporin PIP2-5	PIP	Cold	4.023	3.39e-41	up
+LOC110868884	probable aquaporin PIP2-5	PIP	Heat	1.204	0.0238	up
+LOC110868884	probable aquaporin PIP2-5	PIP	Salt_NaCl	1.133	0.00253	up
+LOC110868884	probable aquaporin PIP2-5	PIP	Drought_7d	-2.567	7.24e-08	down
+LOC110868884	probable aquaporin PIP2-5	PIP	Drought_14d	-2.296	9.69e-07	down
+LOC110868884	probable aquaporin PIP2-5	PIP	PEG_72h	-1.673	1.01e-08	down
+LOC110904925	probable aquaporin PIP1-4	PIP	Cold	4.121	2.98e-06	up
+LOC110904925	probable aquaporin PIP1-4	PIP	Salt_NaCl	1.689	0.00445	up
+LOC110904925	probable aquaporin PIP1-4	PIP	Drought_14d	1.549	0.0265	up
+LOC110904925	probable aquaporin PIP1-4	PIP	Orobanche_B	-1.665	0.002	down
+LOC110904925	probable aquaporin PIP1-4	PIP	Orobanche_E	-1.187	0.025	down
+LOC110906290	probable aquaporin TIP5-1	TIP	Cold	4.025	0.026	up
+LOC110906290	probable aquaporin TIP5-1	TIP	Drought_7d	1.659	0.0199	up
+LOC110911072	aquaporin NIP2-1	NIP	Cold	5.348	0.00282	up
+LOC110911072	aquaporin NIP2-1	NIP	Drought_14d	-2.982	0.00468	down
+LOC110911072	aquaporin NIP2-1	NIP	Orobanche_B	3.237	0.00012	up
+LOC110911072	aquaporin NIP2-1	NIP	Orobanche_C	3.361	6.69e-05	up
+LOC110911072	aquaporin NIP2-1	NIP	Orobanche_D	2.287	0.00809	up
+LOC110911072	aquaporin NIP2-1	NIP	Orobanche_E	4.096	1.56e-07	up
+LOC110886457	aquaporin NIP2-1	NIP	Cold	2.078	2.32e-16	up
+LOC110886457	aquaporin NIP2-1	NIP	Heat	-1.339	0.0192	down
+LOC110886457	aquaporin NIP2-1	NIP	Salt_NaCl	-3.037	2.31e-18	down
+LOC110886457	aquaporin NIP2-1	NIP	Drought_14d	-1.992	0.000124	down
+LOC110911125	aquaporin NIP2-1	NIP	Heat	-1.089	4.64e-06	down
+LOC110911125	aquaporin NIP2-1	NIP	Salt_NaCl	1.400	2.18e-17	up
+LOC110911125	aquaporin NIP2-1	NIP	Drought_7d	1.139	0.0163	up
+LOC110911125	aquaporin NIP2-1	NIP	Drought_14d	1.581	0.000325	up
+LOC110911125	aquaporin NIP2-1	NIP	Orobanche_B	2.178	6.88e-15	up
+LOC110911759	aquaporin NIP1-1	NIP	Orobanche_B	-1.712	0.0361	down
+LOC110911759	aquaporin NIP1-1	NIP	Orobanche_E	-2.094	0.00559	down
+LOC110911761	aquaporin NIP1-1	NIP	Cold	1.093	0.000172	up
+LOC110911761	aquaporin NIP1-1	NIP	Heat	-2.872	1.04e-26	down
+LOC110911761	aquaporin NIP1-1	NIP	Drought_14d	-2.120	0.000258	down
+LOC110911761	aquaporin NIP1-1	NIP	Drought_21d	-1.521	0.0232	down
+LOC110911761	aquaporin NIP1-1	NIP	Orobanche_B	-1.565	0.0394	down
+LOC110911761	aquaporin NIP1-1	NIP	Orobanche_C	-1.629	0.0272	down
+LOC110912639	probable aquaporin TIP3-2	TIP	Drought_21d	-3.391	0.0131	down
+LOC110912639	probable aquaporin TIP3-2	TIP	PEG_72h	1.930	1.42e-05	up
+LOC110912639	probable aquaporin TIP3-2	TIP	Flooding	1.504	0.000796	up
+LOC110880175	aquaporin TIP2-1	TIP	Cold	1.633	2.25e-15	up
+LOC110880175	aquaporin TIP2-1	TIP	Drought_7d	-4.399	5.49e-09	down
+LOC110880175	aquaporin TIP2-1	TIP	Drought_14d	-5.332	5.09e-13	down
+LOC110880175	aquaporin TIP2-1	TIP	PEG_72h	-3.263	1.05e-08	down
+LOC110916291	probable aquaporin TIP-type RB7-5A	TIP	Orobanche_E	-2.003	0.000114	down
+LOC110916097	probable aquaporin TIP-type	TIP	Cold	2.123	0.000544	up
+LOC110916097	probable aquaporin TIP-type	TIP	Drought_7d	-3.113	2.59e-06	down
+LOC110916097	probable aquaporin TIP-type	TIP	Drought_14d	-4.776	5.57e-13	down
+LOC110916097	probable aquaporin TIP-type	TIP	PEG_72h	-1.549	0.000729	down
+LOC110916097	probable aquaporin TIP-type	TIP	Sclerotinia	-1.442	1.09e-07	down
+LOC110916097	probable aquaporin TIP-type	TIP	Orobanche_B	-1.074	0.0193	down
+LOC110916097	probable aquaporin TIP-type	TIP	Orobanche_C	-1.275	0.00388	down
+LOC110916097	probable aquaporin TIP-type	TIP	Orobanche_E	-2.097	1.66e-07	down
+LOC110937771	aquaporin TIP3-1	TIP	Salt_NaCl	5.587	0.000448	up
+LOC110937771	aquaporin TIP3-1	TIP	Drought_7d	5.226	1.14e-08	up
+LOC110937771	aquaporin TIP3-1	TIP	Drought_14d	7.047	1.87e-15	up
+LOC110937771	aquaporin TIP3-1	TIP	Drought_21d	2.319	0.0356	up
+LOC110926365	probable aquaporin NIP5-1	NIP	Cold	3.276	2.1e-07	up
+LOC110926365	probable aquaporin NIP5-1	NIP	Drought_7d	-2.577	0.000126	down
+LOC110926365	probable aquaporin NIP5-1	NIP	Drought_14d	-2.726	2.72e-05	down
+LOC110926365	probable aquaporin NIP5-1	NIP	Drought_21d	-2.045	0.00534	down
+LOC110921506	probable aquaporin NIP5-1	NIP	Cold	3.732	0.000152	up
+LOC110921506	probable aquaporin NIP5-1	NIP	Drought_7d	-3.399	0.000713	down
+LOC110921506	probable aquaporin NIP5-1	NIP	Drought_14d	-2.515	0.00738	down
+LOC110925968	aquaporin PIP2-7	PIP	Cold	-2.743	0.0088	down
+LOC110925968	aquaporin PIP2-7	PIP	Salt_NaCl	-3.285	1.97e-12	down
+LOC110925968	aquaporin PIP2-7	PIP	Drought_7d	-4.062	7.63e-06	down
+LOC110925968	aquaporin PIP2-7	PIP	Drought_14d	-5.739	5.92e-11	down
+LOC110925968	aquaporin PIP2-7	PIP	PEG_72h	-3.897	6.96e-08	down
+LOC110923973	aquaporin NIP2-2	NIP	PEG_72h	-1.285	0.00139	down
+LOC110923973	aquaporin NIP2-2	NIP	Flooding	1.199	0.000662	up
+LOC110923973	aquaporin NIP2-2	NIP	Orobanche_D	1.943	0.0418	up
+LOC110923973	aquaporin NIP2-2	NIP	Orobanche_E	2.151	0.0194	up
+LOC110884547	aquaporin NIP2-1	NIP	Cold	8.600	4.06e-08	up
+LOC110884547	aquaporin NIP2-1	NIP	Drought_14d	-2.335	0.000578	down
+LOC110884546	aquaporin NIP2-2	NIP	Cold	5.027	0.000845	up
+LOC110884546	aquaporin NIP2-2	NIP	Heat	-4.496	0.00145	down
+LOC110884546	aquaporin NIP2-2	NIP	Drought_7d	-2.960	0.00523	down
+LOC110884546	aquaporin NIP2-2	NIP	Drought_14d	-5.940	1.41e-08	down

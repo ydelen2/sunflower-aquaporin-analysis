@@ -3,7 +3,7 @@
 #SBATCH --partition=batch
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=16
-#SBATCH --mem=128G
+#SBATCH --mem=64G
 #SBATCH --time=24:00:00
 #SBATCH --output=/work/dweikat/ydelen2/aquaporin_study/04_expression/logs/wgcna_%j.out
 #SBATCH --error=/work/dweikat/ydelen2/aquaporin_study/04_expression/logs/wgcna_%j.err
@@ -14,7 +14,7 @@
 # WGCNA co-expression network analysis - PRJNA869183 (4 stresses)
 ###############################################################################
 
-set -euo pipefail
+set -eo pipefail
 
 PROJ_DIR='/work/dweikat/ydelen2/aquaporin_study'
 EXPR_DIR="${PROJ_DIR}/04_expression"
@@ -28,7 +28,9 @@ echo "Node: $(hostname)"
 echo "Memory: $(free -h | head -2)"
 
 module purge
-module load R/4.1
+module load miniforge/24.5
+eval "$(conda shell.bash hook)"
+conda activate /work/dweikat/ydelen2/aquaporin_study/conda_envs/aqp_env
 
 Rscript --no-save --no-restore - <<'RSCRIPT_EOF'
 
@@ -56,6 +58,8 @@ suppressPackageStartupMessages({
 # WGCNA settings
 options(stringsAsFactors = FALSE)
 allowWGCNAThreads(nThreads = 16)
+# Override cor with WGCNA version to avoid conflicts
+cor <- WGCNA::cor
 enableWGCNAThreads(nThreads = 16)
 
 dir.create(RESULTS_DIR, recursive = TRUE, showWarnings = FALSE)
@@ -190,7 +194,7 @@ par(mfrow = c(1, 2))
 # Scale-free topology fit index
 plot(sft$fitIndices[, 1], -sign(sft$fitIndices[, 3]) * sft$fitIndices[, 2],
      xlab = "Soft Threshold (power)",
-     ylab = "Scale Free Topology Model Fit (signed R²)",
+     ylab = "Scale Free Topology Model Fit (signed R^2)",
      main = "Scale Independence",
      type = "n")
 text(sft$fitIndices[, 1], -sign(sft$fitIndices[, 3]) * sft$fitIndices[, 2],

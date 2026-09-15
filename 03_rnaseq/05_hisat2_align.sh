@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=06:00:00
-#SBATCH --array=1-174%20
+#SBATCH --array=1-249%20
 #SBATCH --output=logs/05_hisat2_%A_%a.out
 #SBATCH --error=logs/05_hisat2_%A_%a.err
 

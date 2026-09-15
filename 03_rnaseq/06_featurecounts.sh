@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --time=04:00:00
+#SBATCH --time=48:00:00
 #SBATCH --output=logs/06_featurecounts_%j.out
 #SBATCH --error=logs/06_featurecounts_%j.err
 
@@ -77,7 +77,7 @@ featureCounts \
     -T "$FEATURECOUNTS_THREADS" \
     $PAIR_FLAG \
     -s 0 \
-    -g gene_id \
+    -g gene_name \
     -t exon \
     --tmpDir "${RNASEQ_DIR}/tmp_fc" \
     "${BAM_FILES[@]}"

@@ -64,7 +64,7 @@ for dir in "${directories[@]}"; do
 done
 
 # ---------------------------------------------------------------------------
-# Create placeholder metadata files
+# Create sample metadata templates
 # ---------------------------------------------------------------------------
 log_step "Creating sample metadata templates"
 

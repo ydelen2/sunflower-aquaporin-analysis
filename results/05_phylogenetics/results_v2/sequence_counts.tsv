@@ -1,0 +1,6 @@
+species	tag	proteome	sequences
+Helianthus annuus	Ha	aquaporin_proteins.fa	99
+Arabidopsis thaliana	At	protein.faa	59
+Oryza sativa	Os	protein.faa	36
+Solanum lycopersicum	Sl	protein.faa	48
+Lactuca sativa	Ls	protein.faa	63

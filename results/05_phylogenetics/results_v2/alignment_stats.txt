@@ -1,0 +1,34 @@
+Aquaporin Phylogenetic Analysis Summary (v2, HMM-based reference sets)
+======================================================================
+Date: Sun Sep 13 06:58:34 CDT 2026
+Job ID: 17987062
+
+Input Sequences
+---------------
+species               tag  proteome               sequences
+Helianthus annuus     Ha   aquaporin_proteins.fa  99
+Arabidopsis thaliana  At   protein.faa            59
+Oryza sativa          Os   protein.faa            36
+Solanum lycopersicum  Sl   protein.faa            48
+Lactuca sativa        Ls   protein.faa            63
+Total: 305
+
+Alignment
+---------
+Input data: 305 sequences with 169 amino-acid sites
+
+IQ-TREE Results
+---------------
+Best-fit model according to BIC: LG+F+I+R5
+Log-likelihood of the tree: -23074.7656 (s.e. 953.3986)
+Total tree length (sum of branch lengths): 42.3599
+
+Output Files
+------------
+Combined FASTA:    /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/all_aquaporins_combined.fa
+Raw alignment:     /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/all_aquaporins_mafft.fa
+Trimmed alignment: /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/all_aquaporins_trimmed.fa
+Tree file:         /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/aquaporin_tree.treefile
+Consensus tree:    /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/aquaporin_tree.contree
+IQ-TREE report:    /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/aquaporin_tree.iqtree
+Per-species counts: /work/dweikat/ydelen2/aquaporin_study/05_phylogenetics/results_v2/sequence_counts.tsv

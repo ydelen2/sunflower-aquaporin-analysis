@@ -253,7 +253,7 @@ for k_e, e in enumerate(elems):
     if k_e % 2 == 0:
         for ax in (ax1, ax2, ax3):
             ax.axhspan(bot, top, color="#f2f2f2", zorder=0)
-    ax1.text(-0.52, (top + bot) / 2, ELEMENT_LABEL.get(e, e), transform=ax1.get_yaxis_transform(), ha="right", va="center",
+    ax1.text(-0.66, (top + bot) / 2, ELEMENT_LABEL.get(e, e), transform=ax1.get_yaxis_transform(), ha="left", va="center",
              fontsize=7.5, fontweight="bold", color=COL[e])
     start += k
 ax1.tick_params(axis="y", pad=4, length=0)

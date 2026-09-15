@@ -26,9 +26,9 @@ config.sh                  Shared configuration (paths, module names)
 results/                   Pipeline outputs read by the figure scripts (same layout as on the cluster)
 tables_and_figures/
     figures/               Main figures (Fig 1 to 5, PDF and PNG)
-    supplementary_figures/ Supplementary figures (Fig S1 to S6, PDF and PNG)
+    supplementary_figures/ Supplementary figures (Fig S1 to S7, PDF and PNG)
     tables/                Main tables (Table 1 to 3) and Table S12 as TSV
-    supplementary_tables/  Supplementary_Tables.xlsx (Tables S1 to S11)
+    supplementary_tables/  Supplementary_Tables.xlsx (Tables S1 to S11 and S13)
 ```
 
 ## Running the pipeline
@@ -82,10 +82,11 @@ sbatch 03_rnaseq/06b_merge_counts_492303_v2.sh
 # 6. Expression analysis
 sbatch 04_expression/01_deseq2_analysis.sh           # DESeq2 per BioProject
 sbatch 04_expression/06_deseq2_492303_full_v2.sh     # flooding on all 96 runs, ~ genotype + tissue + age + condition
-sbatch 04_expression/02_aquaporin_expression_v2.sh   # aquaporin normalized counts and TPM (not tracked here)
+sbatch 04_expression/02_aquaporin_expression_v2.sh   # aquaporin normalized counts and heatmaps (outputs not tracked here)
 sbatch 04_expression/03_wgcna_analysis_v2.sh         # WGCNA on PRJNA869183
 sbatch 04_expression/04_aquaporin_deg_table_v2.sh    # aquaporin log2FC/padj matrix (Table S8)
 sbatch 04_expression/08_go_all_v2.sh                 # GO enrichment, 16 contrasts, one common universe
+sbatch 04_expression/09_aquaporin_tpm_v2.sh          # aquaporin TPM in all 249 libraries, control means by tissue
 
 # 7. Figures and supplementary workbook (local machine, Python 3)
 cd 08_figures
@@ -96,6 +97,7 @@ python fig_volcano.py             # Fig 4
 python cis_vs_expression.py       # Fig 5 and the cis-element tables
 python fig_gene_structure.py      # Fig S1
 python fig_chromosome_map.py      # Fig S2
+python fig_tissue_baseline.py     # Fig S7
 python build_supplementary_tables.py   # Supplementary_Tables.xlsx
 ```
 
@@ -129,12 +131,13 @@ A few things worth knowing before starting:
 | Fig S4 | Overlap of the aquaporin DEG sets of the seven stress types |
 | Fig S5 | The 30 aquaporin genes significant in five or more contrasts |
 | Fig S6 | Module-trait correlations of the WGCNA modules of PRJNA869183 that contain aquaporin genes |
+| Fig S7 | Baseline expression of the 87 aquaporin genes in the control libraries, by BioProject and tissue |
 
 ## Tables
 
 Main tables (`tables_and_figures/tables/`): Table 1 (RNA-seq datasets and DESeq2 designs), Table 2 (stress-responsive cis-elements in the aquaporin promoters), Table 3 (aquaporin genes responding in the largest number of contrasts) and Table S12 (genome-wide DEG counts per contrast). The `cis_vs_expression_*.tsv` files are the outputs of `08_figures/cis_vs_expression.py`.
 
-`Supplementary_Tables.xlsx` (Tables S1 to S11): S1 gene inventory, S2 excluded candidates, S3 DESeq2 design rationale, S4 LOC-to-TAIR mapping, S5 physicochemical properties, S6 MEME motifs, S7a duplication pairs, S7b synteny pairs, S7c Ka/Ks, S8 aquaporin DEG matrix, S9 WGCNA module membership, S10 module-trait correlations, S11 GO enrichment.
+`Supplementary_Tables.xlsx` (Tables S1 to S11): S1 gene inventory, S2 excluded candidates, S3 DESeq2 design rationale, S4 LOC-to-TAIR mapping, S5 physicochemical properties, S6 MEME motifs, S7a duplication pairs, S7b synteny pairs, S7c Ka/Ks, S8 aquaporin DEG matrix, S9 WGCNA module membership, S10 module-trait correlations, S11 GO enrichment, S13 baseline TPM of the control libraries by BioProject and tissue (Table S12 is in the Additional file 2 of the paper and is provided here as `TableS12_genome_wide_degs.tsv`).
 
 ## Data availability
 

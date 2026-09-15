@@ -90,7 +90,7 @@ TIP	AtTIP2;1	Q41951
 TIP	AtTIP2;2	Q38857
 TIP	AtTIP2;3	Q9FGL2
 TIP	AtTIP3;1	Q08733
-TIP	AtTIP3;2	Q9ZV07
+TIP	AtTIP3;2	O22588
 TIP	AtTIP4;1	Q9LKJ5
 TIP	AtTIP5;1	Q9C5A0
 NIP	AtNIP1;1	Q8VWS5
@@ -189,8 +189,9 @@ download_uniprot_sequences() {
 
     echo "  ${species_label}: ${count} sequences downloaded, ${fail_count} failed"
 
-    if [[ "${count}" -lt 10 ]]; then
-        echo "WARNING: Low sequence count for ${species_label}. Check UniProt accessions." >&2
+    if [[ "${fail_count}" -gt 0 ]]; then
+        echo "ERROR: ${fail_count} UniProt accession(s) for ${species_label} could not be downloaded. Check the accession list." >&2
+        exit 1
     fi
 }
 

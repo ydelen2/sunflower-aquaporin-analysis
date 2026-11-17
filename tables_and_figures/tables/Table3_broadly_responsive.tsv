@@ -1,4 +1,4 @@
-Gene	Subfamily	Chr	Contrasts (n/16)	Key Pattern
+Gene	RefSeq name	Chr	Contrasts (n/16)	Key Pattern
 LOC110904457	PIP2-4	Ha14	8	Up in cold/Sclerotinia, down in drought/salt/Orobanche
 LOC110916097	TIP-type	Ha16	8	Up in cold, down in drought/Sclerotinia/Orobanche
 LOC110868335	PIP2-4	Ha7	7	Up in cold, down in drought/salt/Orobanche

@@ -134,7 +134,6 @@ if (!is.null(gene_lengths)) {
 # 2. Build sample metadata from filenames
 ###############################################################################
 # Expected naming convention: {BioProject}_{StressType}_{Tissue}_{Genotype}_{Rep}
-# Adjust parsing logic below to match actual naming scheme.
 
 sample_names <- colnames(count_mat)
 

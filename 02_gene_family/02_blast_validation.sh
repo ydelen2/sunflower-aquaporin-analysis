@@ -28,7 +28,7 @@ source "${CONFIG}"
 module purge
 module load blast/2.17
 
-# ── Directories ──────────────────────────────────────────────────────────────
+# -- Directories --------------------------------------------------------------
 WORK_DIR="${PROJ_DIR}/02_gene_family/02_blast_validation"
 HMM_DIR="${PROJ_DIR}/02_gene_family/01_hmm_search"
 LOG_DIR="${WORK_DIR}/logs"
@@ -44,7 +44,7 @@ echo "  Started: $(date)"
 echo "  Job ID:  ${SLURM_JOB_ID:-local}"
 echo "================================================================="
 
-# ── Input validation ─────────────────────────────────────────────────────────
+# -- Input validation ---------------------------------------------------------
 PROTEOME="${REF_DIR}/GCF_002127325.2_HanXRQr2.0_protein.faa"
 HMM_HITS="${HMM_DIR}/hmm_hit_ids.txt"
 
@@ -58,7 +58,7 @@ done
 echo "Proteome: ${PROTEOME}"
 echo "HMM hits: $(wc -l < "${HMM_HITS}") proteins"
 
-# ── Step 1: Prepare known aquaporin query sequences ──────────────────────────
+# -- Step 1: Prepare known aquaporin query sequences --------------------------
 echo ""
 echo "[Step 1] Preparing Arabidopsis and rice aquaporin query sequences..."
 
@@ -203,7 +203,7 @@ COMBINED_QUERY="${QUERY_DIR}/combined_aqp_query.faa"
 cat "${AT_QUERY}" "${OS_QUERY}" > "${COMBINED_QUERY}"
 echo "  Combined query: $(grep -c '^>' "${COMBINED_QUERY}") sequences"
 
-# ── Step 2: Create BLAST database ────────────────────────────────────────────
+# -- Step 2: Create BLAST database --------------------------------------------
 echo ""
 echo "[Step 2] Creating BLAST database from sunflower proteome..."
 
@@ -223,7 +223,7 @@ else
     echo "  BLAST database already exists."
 fi
 
-# ── Step 3: Run BLASTP ───────────────────────────────────────────────────────
+# -- Step 3: Run BLASTP -------------------------------------------------------
 echo ""
 echo "[Step 3] Running BLASTP searches..."
 
@@ -255,7 +255,7 @@ blastp \
     -seg yes
 echo "    Hits: $(wc -l < "${OS_BLAST_OUT}")"
 
-# ── Step 4: Extract BLAST hit IDs ────────────────────────────────────────────
+# -- Step 4: Extract BLAST hit IDs --------------------------------------------
 echo ""
 echo "[Step 4] Extracting and merging hit IDs..."
 
@@ -267,7 +267,7 @@ cat "${AT_BLAST_OUT}" "${OS_BLAST_OUT}" \
 
 echo "  Unique BLAST hits: $(wc -l < "${BLAST_HIT_IDS}")"
 
-# ── Step 5: Merge with HMM results, deduplicate ─────────────────────────────
+# -- Step 5: Merge with HMM results, deduplicate -----------------------------
 echo ""
 echo "[Step 5] Merging HMM and BLAST results..."
 
@@ -300,7 +300,7 @@ while IFS= read -r pid; do
     echo -e "${pid}\t${hmm_flag}\t${blast_flag}\t${confidence}"
 done < "${MERGED_IDS}" >> "${CLASSIFICATION}"
 
-# ── Step 6: Extract candidate sequences ──────────────────────────────────────
+# -- Step 6: Extract candidate sequences --------------------------------------
 echo ""
 echo "[Step 6] Extracting merged candidate sequences..."
 
@@ -319,7 +319,7 @@ found' "${PROTEOME}" > "${CANDIDATE_FASTA}"
 N_EXTRACTED=$(grep -c '^>' "${CANDIDATE_FASTA}" || echo 0)
 echo "  Extracted: ${N_EXTRACTED} sequences"
 
-# ── Step 7: Create BLAST best-hit annotation ─────────────────────────────────
+# -- Step 7: Create BLAST best-hit annotation ---------------------------------
 echo ""
 echo "[Step 7] Creating best-hit annotation (subfamily hints from queries)..."
 
@@ -345,7 +345,7 @@ cat "${AT_BLAST_OUT}" "${OS_BLAST_OUT}" \
 
 echo "  Best-hit annotations: $(( $(wc -l < "${BEST_HITS}") - 1 )) proteins"
 
-# ── Step 8: Create final gene list ───────────────────────────────────────────
+# -- Step 8: Create final gene list -------------------------------------------
 echo ""
 echo "[Step 8] Creating final candidate aquaporin gene list..."
 
@@ -361,7 +361,7 @@ cp "${CLASSIFICATION}" "${PROJ_DIR}/02_gene_family/candidate_classification.tsv"
 echo "  Final candidate list: ${FINAL_LIST}"
 echo "  Copied to: ${PARENT_OUTPUT}"
 
-# ── Summary ──────────────────────────────────────────────────────────────────
+# -- Summary ------------------------------------------------------------------
 echo ""
 echo "================================================================="
 echo "  BLASTP Validation Summary"

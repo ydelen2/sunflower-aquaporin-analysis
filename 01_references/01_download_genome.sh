@@ -13,8 +13,8 @@
 #   1. Sunflower HanXRQr2.0 (NCBI GCF_002127325.2)
 #   2. Arabidopsis TAIR10 proteome
 #   3. Rice IRGSP-1.0 proteome
-#   4. Tomato ITAG4.0 proteome
-#   5. Lettuce v8 proteome
+#   4. Tomato SL3.1 proteome
+#   5. Lettuce Lsat_Salinas_v11 proteome
 # Then builds HISAT2 index for sunflower.
 #
 # Submit: sbatch 01_download_genome.sh
@@ -47,11 +47,11 @@ ATHA_PROT_URL="${ATHA_BASE}/GCF_000001735.4_TAIR10.1_protein.faa.gz"
 OSAT_BASE="${NCBI_FTP}/GCF/001/433/935/GCF_001433935.1_IRGSP-1.0"
 OSAT_PROT_URL="${OSAT_BASE}/GCF_001433935.1_IRGSP-1.0_protein.faa.gz"
 
-# Tomato Solanum lycopersicum SL3.0 - GCF_000188115.5
+# Tomato Solanum lycopersicum SL3.1 - GCF_000188115.5
 SLYC_BASE="${NCBI_FTP}/GCF/000/188/115/GCF_000188115.5_SL3.1"
 SLYC_PROT_URL="${SLYC_BASE}/GCF_000188115.5_SL3.1_protein.faa.gz"
 
-# Lettuce Lactuca sativa v8 - GCF_002870075.4
+# Lettuce Lactuca sativa Lsat_Salinas_v11 - GCF_002870075.4
 LSAT_BASE="${NCBI_FTP}/GCF/002/870/075/GCF_002870075.4_Lsat_Salinas_v11"
 LSAT_PROT_URL="${LSAT_BASE}/GCF_002870075.4_Lsat_Salinas_v11_protein.faa.gz"
 
@@ -243,11 +243,6 @@ for feature in gene mRNA CDS exon; do
     count=$(awk -v f="${feature}" '$3==f' "${GENOME_GFF}" | wc -l)
     printf "  %s: %d\n" "${feature}" "${count}"
 done
-
-# Clean up compressed files to save space (optional - uncomment if needed)
-# log_info "Cleaning up compressed files"
-# rm -f "${SF_DIR}"/*.gz "${ATHA_DIR}"/*.gz "${OSAT_DIR}"/*.gz \
-#        "${SLYC_DIR}"/*.gz "${LSAT_DIR}"/*.gz
 
 log_done "All reference genomes downloaded and indexed"
 log_info "Sunflower genome: ${GENOME_FASTA}"

@@ -77,9 +77,6 @@ conda install --yes -c bioconda paraat
 # SRA toolkit - for downloading FASTQ from NCBI
 conda install --yes -c bioconda sra-tools
 
-# InterProScan helper (optional - large install, skip if HPC has module)
-# conda install --yes -c bioconda interproscan
-
 # ---------------------------------------------------------------------------
 # pip-only packages (if not on conda)
 # ---------------------------------------------------------------------------

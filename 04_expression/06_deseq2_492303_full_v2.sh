@@ -10,11 +10,9 @@
 
 # =============================================================================
 # 06_deseq2_492303_full_v2.sh
-# DESeq2 for PRJNA492303 (flooding) on all 96 runs with the design that the
-# experiment actually has: ~ genotype + tissue + age + condition
+# DESeq2 for PRJNA492303 (flooding) on all 96 runs with the design of the
+# experiment: ~ genotype + tissue + age + condition
 # (HA351/RHA428, leaf/root, 16/24/30 days, control/flooding, 4 replicates).
-# Replaces the 46-run analysis whose design (~ tissue + condition) was
-# confounded by an unbalanced subset of runs.
 # Inputs : 03_rnaseq/counts/PRJNA492303_full_counts_clean.txt
 #          03_rnaseq/accession_lists/PRJNA492303_metadata_full.tsv
 # Output : 04_expression/results/deseq2/PRJNA492303_fixed/  (same file layout as

@@ -68,7 +68,7 @@ ax.legend(frameon=False, fontsize=8, loc="upper right")
 fig.tight_layout(); fig.savefig(L.fig_path("Fig3_deg_bar.pdf")); fig.savefig(L.fig_path("Fig3_deg_bar.png"), dpi=300)
 print("Fig3: up", up, "down", dn)
 
-# ------------------------------------------------------------------ Fig S3 heatmap
+# ------------------------------------------------------------------ Fig S4 heatmap
 mat = np.full((len(genes), len(ORDER)), np.nan)
 for i, g in enumerate(genes):
     for j, c in enumerate(ORDER):
@@ -97,7 +97,7 @@ for i, g in enumerate(genes):
     prev = s1[g]["subfamily"]
 fig.tight_layout(); fig.savefig(L.fig_path("FigS4_expression_heatmap.pdf")); fig.savefig(L.fig_path("FigS4_expression_heatmap.png"), dpi=300)
 
-# ------------------------------------------------------------------ Fig S4 UpSet-style overlap by stress type
+# ------------------------------------------------------------------ Fig S5 UpSet-style overlap by stress type
 types = ["Cold", "Heat", "Drought", "Salt", "Flooding", "Sclerotinia", "Orobanche"]
 TYPE_COL = {"Cold": "#1f77b4", "Heat": "#d62728", "Drought": "#ff7f0e", "Salt": "#9467bd", "Flooding": "#17becf", "Sclerotinia": "#2ca02c", "Orobanche": "#8c564b"}
 sets = {t: {g for g in genes for c in ORDER if STRESS_TYPE[c] == t and sig(g, c)} for t in types}
@@ -132,7 +132,7 @@ for s in ("top", "left"):
     axs.spines[s].set_visible(False)
 fig.savefig(L.fig_path("FigS5_upset.pdf"), bbox_inches="tight"); fig.savefig(L.fig_path("FigS5_upset.png"), dpi=300, bbox_inches="tight")
 
-# ------------------------------------------------------------------ Fig S5 dot plot of broadly responsive genes
+# ------------------------------------------------------------------ Fig S6 dot plot of broadly responsive genes
 nsig = {g: sum(1 for c in ORDER if sig(g, c)) for g in genes}
 top = [g for g in sorted(genes, key=lambda g: (-nsig[g], g)) if nsig[g] >= 5]
 fig, ax = plt.subplots(figsize=(8.5, 0.28 * len(top) + 1.6))
@@ -153,7 +153,7 @@ for s_ in ("top", "right"):
 sm = plt.cm.ScalarMappable(cmap="RdBu_r", norm=plt.Normalize(-4, 4)); cb = fig.colorbar(sm, ax=ax, fraction=0.025, pad=0.02); cb.set_label("log2 fold change", fontsize=7); cb.ax.tick_params(labelsize=6)
 fig.tight_layout(); fig.savefig(L.fig_path("FigS6_broadly_responsive.pdf")); fig.savefig(L.fig_path("FigS6_broadly_responsive.png"), dpi=300)
 
-# ------------------------------------------------------------------ Fig S6 WGCNA module-trait heatmap
+# ------------------------------------------------------------------ Fig S8 WGCNA module-trait heatmap
 mt = L.read_tsv(os.path.join(L.RESULTS, "04_expression", "results", "wgcna_v3", "module_trait_table.tsv"))
 mm = L.read_tsv(os.path.join(L.RESULTS, "04_expression", "results", "wgcna_v3", "aquaporin_module_membership.tsv"))
 aqp_per = collections.Counter("ME" + r["module_number"] for r in mm if r["module_number"] != "0")

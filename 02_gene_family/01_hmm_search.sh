@@ -18,7 +18,7 @@
 
 set -euo pipefail
 
-# ── Source project configuration ─────────────────────────────────────────────
+# -- Source project configuration ---------------------------------------------
 CONFIG="/work/dweikat/ydelen2/aquaporin_study/config.sh"
 if [[ ! -f "${CONFIG}" ]]; then
     echo "FATAL: config file not found: ${CONFIG}" >&2
@@ -26,12 +26,12 @@ if [[ ! -f "${CONFIG}" ]]; then
 fi
 source "${CONFIG}"
 
-# ── Module loads ─────────────────────────────────────────────────────────────
+# -- Module loads -------------------------------------------------------------
 module purge
 module load hmmer/3.4
 module load samtools/1.23
 
-# ── Directory setup ──────────────────────────────────────────────────────────
+# -- Directory setup ----------------------------------------------------------
 WORK_DIR="${PROJ_DIR}/02_gene_family/01_hmm_search"
 LOG_DIR="${WORK_DIR}/logs"
 mkdir -p "${WORK_DIR}" "${LOG_DIR}"
@@ -45,7 +45,7 @@ echo "  Started: $(date)"
 echo "  Job ID:  ${SLURM_JOB_ID:-local}"
 echo "================================================================="
 
-# ── Input validation ─────────────────────────────────────────────────────────
+# -- Input validation ---------------------------------------------------------
 PROTEOME="${REF_DIR}/GCF_002127325.2_HanXRQr2.0_protein.faa"
 if [[ ! -f "${PROTEOME}" ]]; then
     echo "FATAL: Proteome file not found: ${PROTEOME}" >&2
@@ -56,7 +56,7 @@ fi
 echo "Proteome: ${PROTEOME}"
 echo "Protein count: $(grep -c '^>' "${PROTEOME}")"
 
-# ── Step 1: Obtain PF00230 HMM profile ──────────────────────────────────────
+# -- Step 1: Obtain PF00230 HMM profile --------------------------------------
 HMM_FILE="${WORK_DIR}/PF00230.hmm"
 
 if [[ ! -f "${HMM_FILE}" ]]; then
@@ -95,7 +95,7 @@ else
     echo "[Step 1] PF00230 HMM profile already exists: ${HMM_FILE}"
 fi
 
-# ── Step 2: Run hmmsearch ────────────────────────────────────────────────────
+# -- Step 2: Run hmmsearch ----------------------------------------------------
 echo ""
 echo "[Step 2] Running hmmsearch against sunflower proteome..."
 echo "  E-value threshold: 1e-5"
@@ -117,7 +117,7 @@ hmmsearch \
 
 echo "  hmmsearch complete."
 
-# ── Step 3: Parse results ────────────────────────────────────────────────────
+# -- Step 3: Parse results ----------------------------------------------------
 echo ""
 echo "[Step 3] Parsing hmmsearch results..."
 
@@ -146,7 +146,7 @@ grep -v '^#' "${HMMSEARCH_TBL}" \
 
 echo "  Hit table: ${HIT_TABLE}"
 
-# ── Step 4: Extract hit sequences ───────────────────────────────────────────
+# -- Step 4: Extract hit sequences -------------------------------------------
 echo ""
 echo "[Step 4] Extracting hit protein sequences..."
 
@@ -175,7 +175,7 @@ samtools faidx "${PROTEOME}" $(cat "${HIT_IDS}") > "${HIT_FASTA}" 2>/dev/null ||
 N_EXTRACTED=$(grep -c '^>' "${HIT_FASTA}" || echo 0)
 echo "  Extracted sequences: ${N_EXTRACTED}"
 
-# ── Step 5: Parse domain architecture from domtblout ─────────────────────────
+# -- Step 5: Parse domain architecture from domtblout -------------------------
 echo ""
 echo "[Step 5] Parsing domain architecture..."
 
@@ -188,7 +188,7 @@ grep -v '^#' "${HMMSEARCH_DOM}" \
 
 echo "  Domain architecture: ${DOMAIN_ARCH}"
 
-# ── Summary ──────────────────────────────────────────────────────────────────
+# -- Summary ------------------------------------------------------------------
 echo ""
 echo "================================================================="
 echo "  HMM Search Summary"

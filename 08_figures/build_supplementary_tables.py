@@ -173,7 +173,7 @@ for x in r:
         x[2] = "~group, fitted separately for each contrast on the libraries of its two groups (Table S3b)"
 sheet("S3a_Design_Rationale", "Table S3a. DESeq2 design rationale and correction summary for all six BioProjects.", h, r)
 
-# S3b contrasts, groups and replicates; DEG numbers are those of the fits re-run by 10_deseq2_designs_v3.sh
+# S3b contrasts, groups and replicates; DEG numbers are those of the fits in 10_deseq2_designs_v3.sh
 V3 = lambda f: P("04_expression", "results", "deseq2_designs_v3", f)
 h, r = tsv(os.path.join(L.ROOT, "04_expression", "contrast_definitions.tsv"))
 rh, rr = tsv(V3("reproduction_report.tsv"))

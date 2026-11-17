@@ -32,7 +32,7 @@ module purge
 module load bedtools/2.31
 module load samtools/1.23
 
-# ── Directories ──────────────────────────────────────────────────────────────
+# -- Directories --------------------------------------------------------------
 WORK_DIR="${PROJ_DIR}/02_gene_family/05_gene_structure"
 PARENT_DIR="${PROJ_DIR}/02_gene_family"
 LOG_DIR="${WORK_DIR}/logs"
@@ -47,7 +47,7 @@ echo "  Started: $(date)"
 echo "  Job ID:  ${SLURM_JOB_ID:-local}"
 echo "================================================================="
 
-# ── Input validation ─────────────────────────────────────────────────────────
+# -- Input validation ---------------------------------------------------------
 VERIFIED_IDS="${PARENT_DIR}/verified_aquaporin_ids.txt"
 GFF3="${REF_DIR}/GCF_002127325.2_HanXRQr2.0_genomic.gff"
 GENOME="${REF_DIR}/GCF_002127325.2_HanXRQr2.0_genomic.fna"
@@ -69,7 +69,7 @@ if [[ ! -f "${GENOME}.fai" ]]; then
     samtools faidx "${GENOME}"
 fi
 
-# ── Step 1: Map protein IDs to gene IDs in GFF3 ─────────────────────────────
+# -- Step 1: Map protein IDs to gene IDs in GFF3 -----------------------------
 echo ""
 echo "[Step 1] Mapping protein IDs to gene/mRNA features in GFF3..."
 
@@ -205,7 +205,7 @@ GENE_IDS="${WORK_DIR}/aqp_gene_ids.txt"
 awk -F'\t' 'NR > 1 {print $2}' "${GENE_MAP}" | sort -u > "${GENE_IDS}"
 echo "  Gene IDs: $(wc -l < "${GENE_IDS}")"
 
-# ── Step 2: Extract exon-intron structure ────────────────────────────────────
+# -- Step 2: Extract exon-intron structure ------------------------------------
 echo ""
 echo "[Step 2] Extracting exon-intron structure from GFF3..."
 
@@ -304,7 +304,7 @@ def main():
                 if parent in mrna_ids or parent in mrna_parent:
                     utr3[parent].append((start, end))
 
-    # ── Output exon structure ────────────────────────────────────────────
+    # -- Output exon structure --------------------------------------------
     exon_file = f"{output_prefix}_exon_structure.tsv"
     with open(exon_file, 'w') as out:
         out.write("gene_id\tprotein_id\tmrna_id\tchromosome\texon_num\texon_start\texon_end\texon_length\tstrand\n")
@@ -323,7 +323,7 @@ def main():
                 exon_len = e - s + 1
                 out.write(f"{gene_id}\t{protein_id}\t{mrna_id}\t{chrom}\t{i}\t{s}\t{e}\t{exon_len}\t{strand}\n")
 
-    # ── Output intron lengths ────────────────────────────────────────────
+    # -- Output intron lengths --------------------------------------------
     intron_file = f"{output_prefix}_intron_lengths.tsv"
     with open(intron_file, 'w') as out:
         out.write("gene_id\tprotein_id\tchromosome\tintron_num\tintron_start\tintron_end\tintron_length\n")
@@ -346,7 +346,7 @@ def main():
                 if intron_len > 0:
                     out.write(f"{gene_id}\t{protein_id}\t{chrom}\t{i+1}\t{intron_start}\t{intron_end}\t{intron_len}\n")
 
-    # ── Summary per gene ─────────────────────────────────────────────────
+    # -- Summary per gene -------------------------------------------------
     summary_file = f"{output_prefix}_gene_structure_summary.tsv"
     with open(summary_file, 'w') as out:
         out.write("gene_id\tprotein_id\tchromosome\tgene_start\tgene_end\tstrand\t"
@@ -385,7 +385,7 @@ def main():
                       f"{gene_len}\t{num_exons}\t{total_exon_len}\t{num_introns}\t"
                       f"{total_intron_len}\t{avg_intron_len:.1f}\t{n_utr5}\t{n_utr3}\n")
 
-    # ── TBtools gene structure format ────────────────────────────────────
+    # -- TBtools gene structure format ------------------------------------
     # TBtools Gene Structure View expects: gene_id, feature_type, start, end
     tbtools_file = f"{output_prefix}_tbtools_gene_structure.txt"
     with open(tbtools_file, 'w') as out:
@@ -434,7 +434,7 @@ PYEOF
 OUTPUT_PREFIX="${WORK_DIR}/aqp"
 python3 "${EXON_INTRON_SCRIPT}" "${GFF3}" "${GENE_MAP}" "${OUTPUT_PREFIX}"
 
-# ── Step 3: Extract 2kb upstream promoter sequences ─────────────────────────
+# -- Step 3: Extract 2kb upstream promoter sequences -------------------------
 echo ""
 echo "[Step 3] Extracting 2kb upstream promoter sequences..."
 
@@ -488,7 +488,7 @@ bedtools getfasta \
 echo "  Promoter sequences extracted: $(grep -c '^>' "${PROMOTER_FASTA}" || echo 0)"
 echo "  Output: ${PROMOTER_FASTA}"
 
-# ── Step 4: Create GFF3 subset for TBtools ───────────────────────────────────
+# -- Step 4: Create GFF3 subset for TBtools -----------------------------------
 echo ""
 echo "[Step 4] Creating GFF3 subset for TBtools visualization..."
 
@@ -555,7 +555,7 @@ print(f'  AQP GFF3 features extracted', file=sys.stderr)
 
 echo "  AQP GFF3: ${AQP_GFF3}"
 
-# ── Summary ──────────────────────────────────────────────────────────────────
+# -- Summary ------------------------------------------------------------------
 echo ""
 echo "================================================================="
 echo "  Gene Structure Analysis Complete"

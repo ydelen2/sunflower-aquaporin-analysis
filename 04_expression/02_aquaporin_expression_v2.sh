@@ -10,7 +10,7 @@
 #SBATCH --mail-type=END,FAIL
 
 ###############################################################################
-# 02_aquaporin_expression.sh
+# 02_aquaporin_expression_v2.sh
 # Aquaporin-focused expression profiling with ComplexHeatmap
 ###############################################################################
 

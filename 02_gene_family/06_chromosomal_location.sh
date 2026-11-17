@@ -33,7 +33,7 @@ module load blast/2.17
 module load mafft/7.526
 module load miniforge/24.5
 
-# ── Directories ──────────────────────────────────────────────────────────────
+# -- Directories --------------------------------------------------------------
 WORK_DIR="${PROJ_DIR}/02_gene_family/06_chromosomal_location"
 PARENT_DIR="${PROJ_DIR}/02_gene_family"
 STRUCT_DIR="${PROJ_DIR}/02_gene_family/05_gene_structure"
@@ -49,7 +49,7 @@ echo "  Started: $(date)"
 echo "  Job ID:  ${SLURM_JOB_ID:-local}"
 echo "================================================================="
 
-# ── Input validation ─────────────────────────────────────────────────────────
+# -- Input validation ---------------------------------------------------------
 VERIFIED_FASTA="${PARENT_DIR}/verified_aquaporins.faa"
 VERIFIED_IDS="${PARENT_DIR}/verified_aquaporin_ids.txt"
 GENE_MAP="${STRUCT_DIR}/protein_to_gene_map.tsv"
@@ -75,7 +75,7 @@ fi
 N_AQP=$(wc -l < "${VERIFIED_IDS}")
 echo "Verified aquaporins: ${N_AQP}"
 
-# ── Step 1: Extract chromosomal coordinates ──────────────────────────────────
+# -- Step 1: Extract chromosomal coordinates ----------------------------------
 echo ""
 echo "[Step 1] Extracting chromosomal coordinates..."
 
@@ -139,7 +139,7 @@ fi
 echo "  Chromosomal locations: ${CHROM_LOC}"
 echo "  Genes mapped: $(( $(wc -l < "${CHROM_LOC}") - 1 ))"
 
-# ── Step 2: Identify tandem duplications ─────────────────────────────────────
+# -- Step 2: Identify tandem duplications -------------------------------------
 echo ""
 echo "[Step 2] Identifying tandem duplications (within 200kb on same chromosome)..."
 
@@ -254,7 +254,7 @@ python3 "${TANDEM_SCRIPT}" "${CHROM_LOC}" "${TANDEM_DIST}" "${TANDEM_OUTPUT}"
 
 echo "  Tandem duplicates: ${TANDEM_OUTPUT}"
 
-# ── Step 3: Identify segmental duplications via self-BLASTP ──────────────────
+# -- Step 3: Identify segmental duplications via self-BLASTP ------------------
 echo ""
 echo "[Step 3] Identifying segmental duplications via self-BLASTP..."
 
@@ -414,7 +414,7 @@ python3 "${SEGMENTAL_SCRIPT}" "${SELF_BLAST}" "${CHROM_LOC}" "${TANDEM_OUTPUT}" 
 
 echo "  Segmental duplicates: ${SEGMENTAL_OUTPUT}"
 
-# ── Step 4: Ka/Ks calculation for duplicate pairs ────────────────────────────
+# -- Step 4: Ka/Ks calculation for duplicate pairs ----------------------------
 echo ""
 echo "[Step 4] Calculating Ka/Ks for duplicate pairs..."
 
@@ -448,10 +448,7 @@ Approach:
   1. Extract CDS nucleotide sequences for each pair
   2. Align protein sequences with MAFFT
   3. Back-translate alignment to codon alignment
-  4. Calculate Ka, Ks using simple counting method
-
-For more accurate results, use KaKs_Calculator2.0 or PAML yn00.
-This script provides a pure-Python implementation.
+  4. Calculate Ka, Ks by counting sites and differences (pure-Python implementation)
 """
 import sys
 import os
@@ -869,7 +866,7 @@ else
         > "${WORK_DIR}/kaks_results.tsv"
 fi
 
-# ── Step 5: Create chromosome map for visualization ──────────────────────────
+# -- Step 5: Create chromosome map for visualization --------------------------
 echo ""
 echo "[Step 5] Creating chromosome map files..."
 
@@ -952,7 +949,7 @@ fi
 
 python3 "${CHROM_MAP_SCRIPT}" "${CHROM_LOC}" "${WORK_DIR}/aqp" "${GENOME_FAI}"
 
-# ── Summary ──────────────────────────────────────────────────────────────────
+# -- Summary ------------------------------------------------------------------
 echo ""
 echo "================================================================="
 echo "  Chromosomal Location & Duplication Analysis Complete"

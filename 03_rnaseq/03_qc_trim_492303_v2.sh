@@ -13,9 +13,8 @@
 # =============================================================================
 # 03_qc_trim_492303_v2.sh
 # FastQC + fastp for every run of PRJNA492303 (flooding, 96 runs).
-# The first analysis trimmed and aligned only 46 of the 96 runs, an arbitrary
-# block of consecutive accessions; the full experiment is a balanced
-# 2 genotypes x 2 treatments x 2 tissues x 3 ages x 4 replicates design.
+# The experiment is a balanced 2 genotypes x 2 treatments x 2 tissues x 3 ages
+# x 4 replicates design.
 # Parameters are identical to 03_qc_trim.sh. Runs already trimmed are skipped.
 # Array index = line number in accession_lists/PRJNA492303_srr.txt.
 # =============================================================================

@@ -12,11 +12,10 @@
 # 08_go_all_v2.sh
 # GO over-representation analysis for the 16 stress contrasts used in the
 # manuscript, run once with one explicit gene universe so that every contrast is
-# tested against the same background. The first run had taken its universe from
-# whichever results table was listed first; here the universe is the union of all
-# genes with a DESeq2 result in any of the 16 contrasts, mapped to Arabidopsis
-# identifiers. Settings as in 04_go_kegg_enrichment.sh (org.At.tair.db, BP/MF/CC,
-# BH, p < 0.05, q < 0.1).
+# tested against the same background: the union of all genes with an adjusted
+# P value in any of the 16 contrasts, mapped to Arabidopsis identifiers.
+# Settings as in 04_go_kegg_enrichment.sh (org.At.tair.db, BP/MF/CC, BH,
+# p < 0.05, q < 0.1).
 # Input : 04_expression/results/aquaporin_deg_v2/contrast_map.tsv (file -> label)
 # Output: 04_expression/results/enrichment/GO_all_contrasts_v2.tsv
 #         04_expression/results/enrichment/GO_all_contrasts_v2_universe.txt
@@ -55,7 +54,7 @@ cmap <- read.delim(MAP, stringsAsFactors = FALSE)
 cat("contrasts:", nrow(cmap), "\n")
 full <- lapply(cmap$file, function(f) read.delim(file.path(DESEQ_DIR, f), stringsAsFactors = FALSE))
 universe <- unique(unlist(lapply(full, function(d) d$gene_id[!is.na(d$padj)])))
-cat("universe (genes with a DESeq2 result in any contrast):", length(universe), "\n")
+cat("universe (genes with an adjusted P value in any contrast):", length(universe), "\n")
 ath_universe <- to_tair(universe)
 cat("universe mapped to TAIR:", length(ath_universe), "\n")
 writeLines(universe, OUT_UNI)

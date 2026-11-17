@@ -58,7 +58,7 @@ for f in "${IDS}" "${FAA}" "${P2G}" "${STRUCT}" "${GENEGFF}" "${PROM}" "${CLASS}
     [[ -s "${f}" ]] || { echo "ERROR: missing input ${f}" >&2; exit 1; }
 done
 
-# keep first-version copies once
+# keep a copy of existing files once
 for f in "${RES}/verified_aquaporins.txt" "${RES}/aquaporin_loc_mapping.tsv" "${RES}/promoters_2kb.fa" "${SUPP}/Table_S1_aquaporin_genes.tsv"; do
     if [[ -e "${f}" || -L "${f}" ]] && [[ ! -e "${f}.v1_backup" ]]; then
         cp -L "${f}" "${f}.v1_backup" 2>/dev/null || true

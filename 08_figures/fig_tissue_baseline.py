@@ -8,7 +8,7 @@ BioProject and tissue (Additional file figure).
      sampled both tissues
 
 Inputs: 04_expression/results/aquaporin_expression_v2/aquaporin_TPM_control_means.tsv
-(09_aquaporin_tpm_v2.sh), Table S1 (subfamily, product) and Table S4 (number of
+(09_aquaporin_tpm_v2.sh), Table S1 (subfamily, product) and Table S8 (number of
 significant contrasts per gene).
 
 usage: python fig_tissue_baseline.py [out_prefix]
@@ -35,7 +35,7 @@ n_lib = rows[0]; rows = rows[1:]
 tpm = {r["gene_id"]: {g: float(r[g]) for g in GROUP_ORDER} for r in rows}
 genes = [g for g in tpm if g in s1]
 
-# number of significant contrasts per gene (Table S4 layout)
+# number of significant contrasts per gene (Table S8 layout)
 s4 = L.read_tsv(os.path.join(L.RESULTS, "09_figures", "supplementary", "Table_S4_aqp_deg_all_contrasts.tsv"))
 ncon = {}
 for r in s4:

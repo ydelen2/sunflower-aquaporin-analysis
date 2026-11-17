@@ -31,7 +31,7 @@ mkdir -p "${SYNTENY_DIR}"/{data,blast,mcscanx,results}
 mkdir -p "${REF_DIR}/arabidopsis" "${REF_DIR}/lettuce"
 
 # =============================================================================
-# STEP 1: Download REAL GFF files from NCBI
+# STEP 1: Download GFF files from NCBI
 # =============================================================================
 log "STEP 1: Downloading real GFF files from NCBI"
 
@@ -85,7 +85,7 @@ fi
 # =============================================================================
 # STEP 2: Parse GFFs to create MCScanX-compatible files with protein IDs
 # =============================================================================
-log "STEP 2: Creating MCScanX GFF files from REAL coordinates"
+log "STEP 2: Creating MCScanX GFF files from the NCBI coordinates"
 
 python3 - "${HA_GFF}" "${AT_GFF}" "${LS_GFF}" "${SYNTENY_DIR}/data" <<'PYGFF'
 import re, sys, os
@@ -130,7 +130,7 @@ def parse_ncbi_gff(gff_path, species_prefix):
                 if loc not in gene_to_prot:
                     gene_to_prot[loc] = prot_id
     
-    # Write GFF with protein IDs and REAL coordinates
+    # Write GFF with protein IDs and gene coordinates
     entries = []
     for loc, (chrom, start, end) in genes.items():
         if loc in gene_to_prot:
@@ -165,7 +165,7 @@ print(f'Lettuce:     {n_ls} genes, {m_ls} protein mappings')
 PYGFF
 
 # =============================================================================
-# STEP 3: BLASTp with NCBI proteomes (real protein IDs)
+# STEP 3: BLASTp with NCBI proteomes (protein IDs as in the GFF files)
 # =============================================================================
 log "STEP 3: BLASTp with NCBI proteomes"
 
@@ -198,7 +198,7 @@ blastp -query "${SCRATCH}/Ha_Ls.faa" -db "${SCRATCH}/Ha_Ls_db" \
        -num_threads ${THREADS} -outfmt 6 -max_target_seqs 5
 log "  Ha vs Ls: $(wc -l < ${SYNTENY_DIR}/blast/Ha_Ls_v2.blast) hits"
 
-# Ha self (reuse from v1)
+# Ha self (an existing search is reused)
 if [[ ! -f "${SYNTENY_DIR}/blast/Ha_self.blast" ]]; then
     log "  BLASTp: Ha self..."
     makeblastdb -in "${HA_PROT}" -dbtype prot -out "${SCRATCH}/Ha_self_db"
@@ -206,7 +206,7 @@ if [[ ! -f "${SYNTENY_DIR}/blast/Ha_self.blast" ]]; then
            -out "${SYNTENY_DIR}/blast/Ha_self.blast" -evalue 1e-10 \
            -num_threads ${THREADS} -outfmt 6 -max_target_seqs 5
 else
-    log "  Ha self BLAST reused from v1"
+    log "  Ha self BLAST reused"
 fi
 
 rm -rf "${SCRATCH}"

@@ -112,7 +112,7 @@ def load_table_s1(results=RESULTS):
 
 def load_subfamily_by_protein(results=RESULTS):
     """XP -> subfamily. Uses 08_classification_v2/subfamily_by_tree.tsv when
-    present (re-analysis), otherwise Table S1 via the protein-gene map."""
+    present, otherwise Table S1 via the protein-gene map."""
     cls = os.path.join(results, "02_gene_family", "08_classification_v2", "subfamily_by_tree.tsv")
     if os.path.exists(cls):
         return {r["protein_id"]: r["subfamily_tree"] for r in read_tsv(cls)}

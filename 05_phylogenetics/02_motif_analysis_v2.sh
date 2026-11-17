@@ -10,7 +10,7 @@
 #SBATCH --mail-type=END,FAIL
 
 # ============================================================================
-# 02_motif_analysis.sh
+# 02_motif_analysis_v2.sh
 # MEME motif discovery on sunflower aquaporin protein sequences.
 # Identifies conserved protein motifs (up to 20), then parses output
 # into a summary table mapping motifs to genes.

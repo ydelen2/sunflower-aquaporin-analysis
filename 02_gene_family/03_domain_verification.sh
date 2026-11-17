@@ -30,7 +30,7 @@ module purge
 module load hmmer/3.4
 module load miniforge/24.5
 
-# ── Directories ──────────────────────────────────────────────────────────────
+# -- Directories --------------------------------------------------------------
 WORK_DIR="${PROJ_DIR}/02_gene_family/03_domain_verification"
 PARENT_DIR="${PROJ_DIR}/02_gene_family"
 LOG_DIR="${WORK_DIR}/logs"
@@ -45,7 +45,7 @@ echo "  Started: $(date)"
 echo "  Job ID:  ${SLURM_JOB_ID:-local}"
 echo "================================================================="
 
-# ── Input validation ─────────────────────────────────────────────────────────
+# -- Input validation ---------------------------------------------------------
 CANDIDATE_FASTA="${PARENT_DIR}/candidate_aquaporins.faa"
 CANDIDATE_IDS="${PARENT_DIR}/candidate_aquaporin_ids.txt"
 
@@ -60,7 +60,7 @@ done
 N_CANDIDATES=$(grep -c '^>' "${CANDIDATE_FASTA}")
 echo "Input candidates: ${N_CANDIDATES}"
 
-# ── Step 1: Pfam-A database check ───────────────────────────────────────────
+# -- Step 1: Pfam-A database check -------------------------------------------
 echo ""
 echo "[Step 1] Checking Pfam-A database..."
 
@@ -104,7 +104,7 @@ if [[ ! -f "${PFAM_DB}.h3i" ]]; then
     hmmpress "${PFAM_DB}"
 fi
 
-# ── Step 2: hmmscan against Pfam-A ──────────────────────────────────────────
+# -- Step 2: hmmscan against Pfam-A ------------------------------------------
 echo ""
 echo "[Step 2] Running hmmscan against Pfam-A database..."
 
@@ -124,7 +124,7 @@ hmmscan \
 
 echo "  hmmscan complete."
 
-# ── Step 3: Parse MIP domain results ────────────────────────────────────────
+# -- Step 3: Parse MIP domain results ----------------------------------------
 echo ""
 echo "[Step 3] Parsing MIP domain (PF00230) results..."
 
@@ -165,20 +165,19 @@ grep -v '^#' "${HMMSCAN_DOM}" \
 
 echo "  Full domain annotations: ${ALL_DOMAINS}"
 
-# ── Step 4: Transmembrane helix prediction ───────────────────────────────────
+# -- Step 4: Transmembrane helix prediction -----------------------------------
 echo ""
 echo "[Step 4] Predicting transmembrane helices..."
 
-# Use a Python-based TM prediction since TMHMM may not be available
-# This uses a hydrophobicity-based sliding window approach as a proxy
-# For publication, DeepTMHMM or TMHMM should be run separately
+# Python-based TM prediction with a hydrophobicity sliding window (screening
+# only; the gene set is defined with DeepTMHMM in 03_domain_verification_v2.sh)
 
 TM_SCRIPT="${WORK_DIR}/predict_tm.py"
 cat > "${TM_SCRIPT}" << 'PYEOF'
 #!/usr/bin/env python3
 """
 Transmembrane helix prediction using Kyte-Doolittle hydrophobicity.
-This is a simple screening method. For publication, use DeepTMHMM or TMHMM.
+This is a screening method; 03_domain_verification_v2.sh uses DeepTMHMM.
 
 Aquaporins are expected to have 6 TM helices.
 """
@@ -302,7 +301,7 @@ awk -F'\t' 'NR > 1 && $2 >= 4 {print $1}' "${TM_RESULTS}" \
     | sort -u > "${TM_PASS_IDS}"
 echo "  Proteins with ≥4 TM helices: $(wc -l < "${TM_PASS_IDS}")"
 
-# ── Step 5: Apply combined filter ────────────────────────────────────────────
+# -- Step 5: Apply combined filter --------------------------------------------
 echo ""
 echo "[Step 5] Applying combined filter: MIP domain AND ≥4 TM helices..."
 
@@ -313,7 +312,7 @@ comm -12 <(sort "${MIP_PROTEIN_IDS}") <(sort "${TM_PASS_IDS}") \
 N_VERIFIED=$(wc -l < "${VERIFIED_IDS}")
 echo "  Verified aquaporins: ${N_VERIFIED}"
 
-# ── Step 6: Create verified output files ─────────────────────────────────────
+# -- Step 6: Create verified output files -------------------------------------
 echo ""
 echo "[Step 6] Creating verified aquaporin output files..."
 
@@ -371,7 +370,7 @@ done < "${CANDIDATE_IDS}" >> "${FAILED_IDS}"
 N_FAILED=$(( $(wc -l < "${FAILED_IDS}") - 1 ))
 echo "  Failed verification: ${N_FAILED}"
 
-# ── Step 7: Copy final outputs to parent directory ───────────────────────────
+# -- Step 7: Copy final outputs to parent directory ---------------------------
 echo ""
 echo "[Step 7] Copying final outputs..."
 
@@ -379,7 +378,7 @@ cp "${VERIFIED_IDS}" "${PARENT_DIR}/verified_aquaporin_ids.txt"
 cp "${VERIFIED_FASTA}" "${PARENT_DIR}/verified_aquaporins.faa"
 cp "${VERIFIED_TABLE}" "${PARENT_DIR}/verified_aquaporins.tsv"
 
-# ── Summary ──────────────────────────────────────────────────────────────────
+# -- Summary ------------------------------------------------------------------
 echo ""
 echo "================================================================="
 echo "  Domain Verification Summary"

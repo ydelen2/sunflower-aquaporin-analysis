@@ -13,14 +13,9 @@
 # 01_msa_and_tree_v2.sh
 # Multiple sequence alignment and phylogenetic tree for aquaporin gene family
 #
-# Difference from the first version: reference aquaporins are now identified
-# by scanning each reference proteome with the PF00230 (MIP) HMM profile,
-# instead of downloading a fixed list of UniProt accessions. Many of those
-# accessions are no longer served by UniProt, which left the rice set with
-# only 14 of 33 sequences and the Arabidopsis set with 32 of 35.
-#
-# Alignment (MAFFT L-INS-i), trimming (trimAl -automated1) and tree inference
-# (IQ-TREE, ModelFinder + UFBoot + SH-aLRT) are unchanged.
+# Reference aquaporins are identified by scanning each reference proteome with
+# the PF00230 (MIP) HMM profile. Alignment: MAFFT L-INS-i; trimming: trimAl
+# -automated1; tree inference: IQ-TREE (ModelFinder + UFBoot + SH-aLRT).
 # ============================================================================
 
 set -eo pipefail
@@ -50,7 +45,7 @@ HMM_EVALUE="1e-5"
 
 # ---------------------------------------------------------------------------
 # Modules
-# The pinned versions are the ones used for the original analysis. If the
+# The pinned versions are the ones used for the analysis. If the
 # cluster has retired a version, fall back to the unversioned module so the
 # job does not die at submission time.
 # ---------------------------------------------------------------------------
@@ -75,8 +70,7 @@ try_modules "iqtree/2.2"     "iqtree"     "iqtree/2"    "IQ-TREE/2.2" "IQTREE"
 try_modules "miniforge/24.5" "miniforge"  "anaconda"    "miniconda"
 
 # If a tool is not provided as a module on this cluster, install it into a
-# dedicated conda environment under the project directory. Same approach the
-# script already uses for trimAl.
+# dedicated conda environment under the project directory, as for trimAl.
 ensure_tool() {
     local binary="$1" pkg="$2" envname="$3"
 

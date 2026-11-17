@@ -2,8 +2,8 @@ Contrast	BioProject	Total DEGs	Up	Down
 Cold (8/16/32h vs 0h)	PRJNA869183	7195	4547	2648
 Heat (4/8/16/32h vs 0h)	PRJNA869183	6064	3107	2957
 Salt (NaCl vs control)	PRJNA869183	7470	3480	3990
-Drought (stress vs normal)	PRJNA869183	83	13	70
-Rehydration (vs severe)	PRJNA869183	127	67	60
+Drought (mild/severe vs no drought)	PRJNA869183	83	13	70
+Rehydration (rewatering vs severe drought)	PRJNA869183	127	67	60
 Drought 7d (vs control)	PRJNA797473	7840	2555	5285
 Drought 14d (vs control)	PRJNA797473	11673	4459	7214
 Drought 21d (vs control)	PRJNA797473	4290	1902	2388

@@ -13,8 +13,8 @@
 # 04_aquaporin_deg_table_v2.sh
 # Aquaporin differential-expression matrix across all DESeq2 contrasts.
 # The table (Additional file 1: Table S8) is built from the per-contrast
-# DESeq2 result files. DESeq2 itself is not re-run: the genome-wide results in
-# 04_expression/results/deseq2/<project>/DEG_<contrast>.tsv are unchanged.
+# DESeq2 result files in 04_expression/results/deseq2/<project>/DEG_<contrast>.tsv;
+# DESeq2 is not run here.
 #
 # Inputs
 #   02_gene_family/results/verified_aquaporins.txt   (07_build_gene_tables_v2.sh)

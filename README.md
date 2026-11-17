@@ -74,8 +74,8 @@ sbatch 03_rnaseq/04_multiqc.sh
 sbatch 03_rnaseq/05_hisat2_align.sh    # array job, one task per run
 sbatch 03_rnaseq/06_featurecounts.sh
 sbatch 03_rnaseq/07_alignment_stats.sh
-# PRJNA492303 (flooding, 96 runs): trimming and alignment of the remaining runs,
-# per-BAM counting and a merged count matrix
+# PRJNA492303 (flooding, 96 runs): trimming and alignment of every run (runs already
+# processed are skipped), per-BAM counting and a merged count matrix
 sbatch 03_rnaseq/03_qc_trim_492303_v2.sh
 sbatch 03_rnaseq/05_hisat2_492303_v2.sh
 sbatch 03_rnaseq/06_featurecounts_492303_v2.sh
@@ -124,6 +124,7 @@ Which outputs the paper uses, and what the steps need:
 - Two stored intermediate tables should be read with care. In `results/02_gene_family/03_domain_verification_v2/failed_verification.tsv` only the rows with `has_mip = yes` are excluded candidates (the six of Table S2a); the rows whose identifier has the form `ref|XP_...|` come from the candidate list of `02_blast_validation.sh` and were not tested. In `results/02_gene_family/05_gene_structure/aqp_gene_structure_summary.tsv` there is one row per mRNA, and every row of a gene carries the protein of its last-listed isoform; the gene tables take exons and coding sequences from `aqp_genes.gff3`.
 - `11_tblastn_unannotated_v3.sh` merges hits within 10 kb on one strand into a locus. One partial aquaporin copy (NC_035447.2:62,074,918-62,075,636, minus strand) lies 3.7 kb from the gene LOC110911759 and is therefore part of the locus of that gene in `tblastn_loci.tsv`.
 - `04_go_kegg_enrichment.sh` is not used for the paper. The GO table of the paper (Table S11) comes from `08_go_all_v2.sh`, which tests all 16 contrasts against the same background (the 49,914 genes with an adjusted P value in at least one contrast).
+- The tables in `results/09_figures/supplementary/` keep the file names written by the pipeline: `Table_S4_aqp_deg_all_contrasts.tsv` is Table S8, `Table_S9_loc_tair_mapping.tsv` is Table S4, `Table_S10_design_rationale.tsv` is Table S3a and `Table_S1_aquaporin_genes.tsv` is Table S1 of the paper.
 - The figure scripts read `results/` by default; set `AQP_RESULTS` to point them at another copy of the pipeline outputs. They write into `tables_and_figures/`.
 
 ## Figures

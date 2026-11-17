@@ -11,23 +11,20 @@
 
 # ============================================================================
 # 03_domain_verification_v2.sh
-# Domain verification of aquaporin candidates, second version.
+# Domain verification of aquaporin candidates.
 #
-# Difference from the first version: transmembrane helices are predicted with
-# DeepTMHMM (Hallgren et al. 2022) instead of the Kyte-Doolittle sliding
-# window that the first version used as a screening proxy. The proxy
-# under-counted helices in many full-length aquaporins, so the "at least 4
-# TM helices" rule removed about 30 annotated aquaporin genes that carry a
-# complete MIP domain.
+# Transmembrane helices are predicted with DeepTMHMM (Hallgren et al. 2022).
+# The Kyte-Doolittle sliding window of 03_domain_verification.sh under-counts
+# helices in many full-length aquaporins and is not used for the gene set.
 #
-# Criteria kept from the first version:
+# Criteria:
 #   1. MIP domain (Pfam PF00230) present, domain E-value <= 1e-5
 #   2. at least 4 predicted TM helices
 #
 # Outputs go to 02_gene_family/03_domain_verification_v2/. The three files
 # that downstream scripts read from 02_gene_family/ (verified_aquaporin_ids.txt,
-# verified_aquaporins.faa, verified_aquaporins.tsv) are replaced, after the
-# first-version copies are saved with a .v1_backup suffix.
+# verified_aquaporins.faa, verified_aquaporins.tsv) are replaced; existing
+# copies are kept with a .v1_backup suffix.
 #
 # DeepTMHMM runs through the BioLib client (pip package pybiolib); the
 # computation itself happens on the BioLib servers, so the node needs
@@ -294,15 +291,15 @@ print('  Failed verification: %d' % n)
 PYEOF
 
 # ---------------------------------------------------------------------------
-# Step 4: comparison with the first version, then replace the shared outputs
+# Step 4: comparison with the gene set of 03_domain_verification.sh, then replace the shared outputs
 # ---------------------------------------------------------------------------
 echo ""
-echo "[Step 4] Comparing with the first-version gene set and updating shared outputs..."
+echo "[Step 4] Comparing with the gene set of 03_domain_verification.sh and updating shared outputs..."
 
 for f in verified_aquaporin_ids.txt verified_aquaporins.faa verified_aquaporins.tsv; do
     if [[ -f "${PARENT_DIR}/${f}" && ! -f "${PARENT_DIR}/${f}.v1_backup" ]]; then
         cp "${PARENT_DIR}/${f}" "${PARENT_DIR}/${f}.v1_backup"
-        echo "  saved first-version copy: ${f}.v1_backup"
+        echo "  saved copy: ${f}.v1_backup"
     fi
 done
 
@@ -325,7 +322,7 @@ cp "${VERIFIED_IDS}"   "${PARENT_DIR}/verified_aquaporin_ids.txt"
 cp "${VERIFIED_FASTA}" "${PARENT_DIR}/verified_aquaporins.faa"
 cp "${VERIFIED_TABLE}" "${PARENT_DIR}/verified_aquaporins.tsv"
 
-# 02_gene_family/results/ holds symlinks into the first-version folder
+# 02_gene_family/results/ holds symlinks into the 03_domain_verification folder
 # (aquaporin_proteins.fa -> ../03_domain_verification/verified_aquaporins.faa,
 #  verified_aquaporins.txt -> ../03_domain_verification/verified_aquaporin_ids.txt)
 # and a copy of the verified table. Downstream scripts read these, so point

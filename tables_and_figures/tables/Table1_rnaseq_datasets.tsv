@@ -1,6 +1,6 @@
 BioProject	Stress Type	Samples	Design Formula	Contrasts
-PRJNA869183	Cold (4°C, 8/16/32h), Heat (39°C, 4/8/16/32h), Drought (mild/severe), Salt (NaCl), Rehydration	57	~group, per contrast	5
-PRJNA797473	Drought (0/7/14/21d)	24	~genotype + condition	3
+PRJNA869183	Cold (4°C, 8/16/32 h), Heat (39°C, 4/8/16/32 h), Drought (mild/severe), Salt (NaCl), Rehydration	57	~group, per contrast	5
+PRJNA797473	Drought (0/7/14/21 d)	24	~genotype + condition	3
 PRJNA1041959	Drought (irrigation withheld, 72 h)	24	~genotype + tissue + condition	1
 PRJNA492303	Flooding (days 1 and 8) and recovery (day 6)	96	~genotype + tissue + age + condition	1
 PRJNA908908	Sclerotinia sclerotiorum	12	~genotype + condition	1

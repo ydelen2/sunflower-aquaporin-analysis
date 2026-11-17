@@ -36,7 +36,7 @@ import figlib as L
 deg_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(L.RESULTS, "09_figures", "supplementary", "Table_S4_aqp_deg_all_contrasts.tsv")
 if not os.path.exists(deg_path):
     deg_path = None
-out_prefix = sys.argv[2] if len(sys.argv) > 2 else L.fig_path("Fig5_cis_vs_expression")
+out_prefix = sys.argv[2] if len(sys.argv) > 2 else L.fig_path("FigS7_cis_vs_expression")
 tab_prefix = os.path.join(L.ROOT, "tables_and_figures", "tables", "cis_vs_expression")
 
 LFC_CUT, PADJ_CUT = 1.0, 0.05
@@ -72,17 +72,21 @@ MOTIFS = {
 COMP = str.maketrans("ACGT", "TGCA")
 
 def count_motif(seq, patterns):
-    rc = seq.translate(COMP)[::-1]
-    n = 0
-    for pat in patterns:
-        for s in (seq, rc):
-            start = 0
-            while True:
-                k = s.find(pat, start)
-                if k < 0:
-                    break
-                n += 1; start = k + 1
-    return n
+    """Number of distinct sites of an element in a sequence. Both strands are
+    scanned and a site is counted once: a match on the reverse strand that
+    overlaps a match on the forward strand is the same site. This covers a
+    consensus that is its own reverse complement (G-box), two listed consensus
+    sequences that are reverse complements of each other (STRE), and a core that
+    is read on both strands one base apart (ACGTG inside CACGTG)."""
+    def matches(pat):
+        out, k = [], seq.find(pat)
+        while k >= 0:
+            out.append((k, k + len(pat)))
+            k = seq.find(pat, k + 1)
+        return out
+    forward = sorted({m for pat in patterns for m in matches(pat)})
+    reverse = sorted({m for pat in patterns for m in matches(pat.translate(COMP)[::-1])})
+    return len(forward) + sum(1 for (a, b) in reverse if not any(a < d and c < b for (c, d) in forward))
 
 p2g = L.load_protein_gene()
 prom_path = None
@@ -115,11 +119,11 @@ with open(tab_prefix + "_gene_counts.tsv", "w") as fh:
         fh.write(g + "\t" + "\t".join(str(cis_gene[g][e]) for e in elements) + "\n")
 ng = len(cis_gene)
 with open(tab_prefix + "_table2.tsv", "w") as fh:
-    fh.write("element\tconsensus\tgenes_with_element\tpercent_of_genes\ttotal_hits_all_promoters\n")
+    fh.write("element\tconsensus\tgenes_with_element\tpercent_of_genes\ttotal_sites_in_gene_promoters\n")
     print("\nTable 2 style summary (this inventory):")
     for e in elements:
         k = sum(1 for g in cis_gene if cis_gene[g][e] > 0)
-        hits = sum(d[e] for d in iso_counts.values())
+        hits = sum(cis_gene[g][e] for g in cis_gene)   # one promoter per gene
         fh.write("%s\t%s\t%d\t%.1f\t%d\n" % (e, "/".join(MOTIFS[e]), k, 100.0 * k / ng, hits))
         print("  %-8s %-13s genes %2d (%3.0f%%)  hits %d" % (e, "/".join(MOTIFS[e]), k, 100.0 * k / ng, hits))
 
@@ -211,8 +215,9 @@ import math
 elems = [e for e in PAIRINGS if e in elements]
 CON_ORDER = ["Cold", "Heat", "Drought_869", "Drought_7d", "Drought_14d", "Drought_21d", "PEG_72h", "Salt_NaCl", "Flooding",
              "Sclerotinia", "Orobanche_A", "Orobanche_B", "Orobanche_C", "Orobanche_D", "Orobanche_E"]
-XLAB = {"Drought_869": "Drought (PRJNA869183)", "Salt_NaCl": "Salt (NaCl)", "PEG_72h": "PEG 72 h", "Drought_7d": "Drought 7 d",
-        "Drought_14d": "Drought 14 d", "Drought_21d": "Drought 21 d"}
+XLAB = {"Drought_869": "Drought (PRJNA869183)", "Salt_NaCl": "Salt (NaCl)", "PEG_72h": "Drought 72 h", "Drought_7d": "Drought 7 d",
+        "Drought_14d": "Drought 14 d", "Drought_21d": "Drought 21 d", "Orobanche_A": "Orobanche 4 h", "Orobanche_B": "Orobanche 12 h",
+        "Orobanche_C": "Orobanche 24 h", "Orobanche_D": "Orobanche 48 h", "Orobanche_E": "Orobanche 72 h"}
 COL = dict(zip(elems, plt.cm.Dark2.colors))
 rows = sorted(results, key=lambda r: (elems.index(r["element"]), CON_ORDER.index(r["contrast"])))
 
@@ -271,4 +276,4 @@ for ax in (ax1, ax2, ax3):
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
 fig.savefig(out_prefix + ".pdf", bbox_inches="tight"); fig.savefig(out_prefix + ".png", dpi=300, bbox_inches="tight")
-print("wrote", out_prefix + "_results.tsv and figure")
+print("wrote", tab_prefix + "_results.tsv,", tab_prefix + "_table2.tsv,", tab_prefix + "_gene_counts.tsv and", out_prefix + ".pdf/.png")

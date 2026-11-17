@@ -19,9 +19,9 @@ D = os.path.join(L.RESULTS, "04_expression", "results", "deseq2")
 PANELS = [("Cold", "PRJNA869183_fixed", "DEG_cold_stress_vs_cold_0h.tsv"),
           ("Drought 14 d", "PRJNA797473_fixed", "DEG_drought_14d_vs_control.tsv"),
           ("Salt (NaCl)", "PRJNA869183_fixed", "DEG_salt_NaCl_vs_control.tsv"),
-          ("Sclerotinia", "PRJNA908908", None)]
+          ("Sclerotinia", "PRJNA908908", "DEG_sclerotinia_vs_control.tsv")]
 fig, axes = plt.subplots(2, 2, figsize=(10, 8.5))
-for ax, (title, proj, fn) in zip(axes.flat, PANELS):
+for ax, letter, (title, proj, fn) in zip(axes.flat, "ABCD", PANELS):
     path = os.path.join(D, proj, fn) if fn else (glob.glob(os.path.join(D, proj, "DEG_*_vs_*.tsv")) or [None])[0]
     if not path or not os.path.exists(path):
         ax.text(0.5, 0.5, "file missing:\n%s/%s" % (proj, fn), ha="center", va="center", transform=ax.transAxes, fontsize=8); ax.set_title(title); continue
@@ -55,7 +55,8 @@ for ax, (title, proj, fn) in zip(axes.flat, PANELS):
             side[sd] += 1; k += 1
     ax.axvline(-1, ls="--", lw=0.6, color="black"); ax.axvline(1, ls="--", lw=0.6, color="black"); ax.axhline(-math.log10(0.05), ls="--", lw=0.6, color="black")
     n_up = sum(1 for l, yy, g, s in labels if s and l > 0); n_dn = sum(1 for l, yy, g, s in labels if s and l < 0)
-    ax.set_title(title, fontsize=9)
+    ax.set_title(title, fontsize=9, style="italic" if title == "Sclerotinia" else "normal")
+    ax.set_title(letter, loc="left", fontsize=12, fontweight="bold")
     ax.set_xlabel("log2 fold change", fontsize=8); ax.set_ylabel("-log10 adjusted P", fontsize=8); ax.tick_params(labelsize=7)
     # x limits: the bulk of the genome-wide points (99.9th percentile) but never clipping an aquaporin
     lim = max(6, np.percentile(np.abs(x), 99.9), (max(abs(v) for v in ax_x) + 0.5) if ax_x else 0); ax.set_xlim(-lim, lim)

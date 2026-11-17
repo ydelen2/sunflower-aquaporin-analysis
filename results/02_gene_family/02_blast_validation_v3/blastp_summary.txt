@@ -1,0 +1,30 @@
+query sequences with a hit: 95
+sunflower proteins hit at E <= 1e-10: 128
+  found by the HMM search: 105 of 105 HMM hits
+  not found by the HMM search: 23
+HMM hits without a BLASTP hit: 0 
+verified aquaporins with a BLASTP hit: 99 of 99
+verified aquaporins without a BLASTP hit: none
+  BLASTP only: XP_035840976.1 190 aa, best query At_NP_001190113.1, identity 62.295, E 4.64e-21, query coverage 23, uncharacterized protein LOC110915194 isoform X3 [Helianthus annuus]
+  BLASTP only: XP_035840975.1 195 aa, best query At_NP_001190113.1, identity 57.576, E 8.90e-19, query coverage 23, uncharacterized protein LOC110915194 isoform X2 [Helianthus annuus]
+  BLASTP only: XP_022015542.1 202 aa, best query At_NP_001190113.1, identity 52.055, E 9.31e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X1 [Helianthus annuus]
+  BLASTP only: XP_022015543.1 202 aa, best query At_NP_001190113.1, identity 52.055, E 9.31e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X1 [Helianthus annuus]
+  BLASTP only: XP_022015544.1 202 aa, best query At_NP_001190113.1, identity 52.055, E 9.31e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X1 [Helianthus annuus]
+  BLASTP only: XP_035840973.1 202 aa, best query At_NP_001190113.1, identity 52.055, E 9.31e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X1 [Helianthus annuus]
+  BLASTP only: XP_022015541.1 202 aa, best query At_NP_001190113.1, identity 52.055, E 9.31e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X1 [Helianthus annuus]
+  BLASTP only: XP_035840974.1 202 aa, best query At_NP_001190113.1, identity 52.055, E 9.31e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X1 [Helianthus annuus]
+  BLASTP only: XP_035840977.1 164 aa, best query At_NP_001190113.1, identity 52.055, E 4.86e-18, query coverage 23, uncharacterized protein LOC110915194 isoform X4 [Helianthus annuus]
+  BLASTP only: XP_035832616.1 132 aa, best query Os_XP_015626173.1, identity 47.561, E 1.68e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_021976509.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_035832323.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_035832325.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_035832324.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_021976511.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_021976510.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_035832326.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_035832328.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_021976507.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_035832327.1 107 aa, best query Os_XP_015626173.1, identity 47.561, E 1.09e-17, query coverage 27, aquaporin NIP2-1-like [Helianthus annuus]
+  BLASTP only: XP_021993098.1 677 aa, best query Os_XP_015620146.2, identity 37.624, E 7.04e-13, query coverage 16, zinc finger BED domain-containing protein RICESLEEPER 1 [Helianthus annuus]
+  BLASTP only: XP_021993097.1 677 aa, best query Os_XP_015620146.2, identity 37.624, E 7.04e-13, query coverage 16, zinc finger BED domain-containing protein RICESLEEPER 1 [Helianthus annuus]
+  BLASTP only: XP_022020503.1 668 aa, best query Os_XP_015620146.2, identity 27.841, E 1.12e-11, query coverage 27, zinc finger BED domain-containing protein RICESLEEPER 1 [Helianthus annuus]

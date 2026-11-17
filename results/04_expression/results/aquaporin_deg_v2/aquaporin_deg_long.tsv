@@ -115,7 +115,7 @@ LOC118479416	aquaporin TIP2-1-like	TIP	Drought_14d	-3.650	9.9e-14	down
 LOC118479416	aquaporin TIP2-1-like	TIP	PEG_72h	-1.273	3.1e-08	down
 LOC118479416	aquaporin TIP2-1-like	TIP	Orobanche_E	-1.345	1.62e-05	down
 LOC110884851	probable aquaporin SIP2-1	SIP	Cold	1.219	5.79e-06	up
-LOC110885224	aquaporin	TIP	PEG_72h	1.793	0.0145	up
+LOC110885224	aquaporin	XIP	PEG_72h	1.793	0.0145	up
 LOC110886572	aquaporin TIP2-1	TIP	Cold	1.280	0.00194	up
 LOC110886572	aquaporin TIP2-1	TIP	Salt_NaCl	-3.353	3.23e-07	down
 LOC110886572	aquaporin TIP2-1	TIP	Drought_7d	-4.199	6.65e-05	down

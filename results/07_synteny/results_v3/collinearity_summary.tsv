@@ -1,0 +1,4 @@
+run	all_genes	collinear_genes	percent_collinear	blocks	blocks_between_genomes	anchor_pairs	aquaporin_pairs	sunflower_aquaporin_genes	partner_genes	largest_block_anchors
+Ha_self_v3	57237	13160	22.99	651	0	8912	43	48	0	149
+Ha_Ls_v3	94092	41746	44.37	1373	1373	32613	99	59	39	351
+Ha_At_v3	84799	18871	22.25	1299	1299	14316	37	26	15	64

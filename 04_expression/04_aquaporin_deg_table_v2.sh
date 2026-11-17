@@ -12,9 +12,8 @@
 # ============================================================================
 # 04_aquaporin_deg_table_v2.sh
 # Aquaporin differential-expression matrix across all DESeq2 contrasts.
-# In the first analysis this table (Table S4) was assembled from the
-# per-contrast DESeq2 result files in an unscripted step; this script makes it
-# reproducible. DESeq2 itself is not re-run: the genome-wide results in
+# The table (Additional file 1: Table S8) is built from the per-contrast
+# DESeq2 result files. DESeq2 itself is not re-run: the genome-wide results in
 # 04_expression/results/deseq2/<project>/DEG_<contrast>.tsv are unchanged.
 #
 # Inputs
@@ -25,7 +24,7 @@
 #   aquaporin_deg_counts.tsv             up / down counts per contrast
 #   aquaporin_deg_long.tsv               one row per gene x contrast (significant only)
 #   broadly_responsive_genes.tsv         genes ranked by number of contrasts
-#   contrast_map.tsv                     file name -> label used in the manuscript
+#   contrast_map.tsv                     file name -> label used in the paper
 # ============================================================================
 
 set -eo pipefail
@@ -48,7 +47,7 @@ import sys, os, glob, re, collections, math
 deseq, aqp_f, out, supp = sys.argv[1:5]
 LFC_CUT, PADJ_CUT = 1.0, 0.05
 
-# labels used in the manuscript for the 16 contrasts; anything not listed keeps project__contrast
+# labels used in the paper for the 16 contrasts; anything not listed keeps project__contrast
 LABELS = {
     ("PRJNA869183", "cold"): "Cold", ("PRJNA869183", "heat"): "Heat", ("PRJNA869183", "drought"): "Drought_869",
     ("PRJNA869183", "salt"): "Salt_NaCl", ("PRJNA869183", "rehydrat"): "Rehydration",
@@ -68,7 +67,7 @@ def label_for(project, contrast):
     for (p, key), lab in LABELS.items():
         if p == project and key in stress:
             return lab
-    # Orobanche stages are single letters, drought time points end in d
+    # the Orobanche groups (time points A to E) are single letters, drought time points end in d
     m = re.match(r"^(?:stage_?)?([a-e])(?:_|$)", stress)
     if project == "PRJNA850121" and m:
         return "Orobanche_" + m.group(1).upper()
@@ -90,7 +89,7 @@ print("aquaporin genes:", len(gid))
 files = sorted(glob.glob(os.path.join(deseq, "*", "DEG_*_vs_*.tsv")))
 files = [f for f in files if "DEG_sig_" not in os.path.basename(f)]
 # the corrected designs live in <project>_fixed directories; when one exists the
-# uncorrected <project> directory is ignored (Additional file 1: Table S10)
+# uncorrected <project> directory is ignored (Additional file 1: Table S3a)
 dirs = {os.path.basename(os.path.dirname(f)) for f in files}
 fixed = {d[:-6] for d in dirs if d.endswith("_fixed")}
 files = [f for f in files if os.path.basename(os.path.dirname(f)) not in fixed]
@@ -130,7 +129,7 @@ with open(os.path.join(out, "contrast_map.tsv"), "w") as fh:
 def fmt(x):
     return "NA" if x is None or (isinstance(x, float) and math.isnan(x)) else ("%.6g" % x)
 
-# Table S4
+# aquaporin log2FC and padj matrix (Additional file 1: Table S8)
 s4 = os.path.join(supp, "Table_S4_aqp_deg_all_contrasts.tsv")
 with open(s4, "w") as fh:
     fh.write("gene_id\tproduct\tsubfamily\t" + "\t".join("%s_LFC\t%s_padj" % (l, l) for l in labels) + "\n")

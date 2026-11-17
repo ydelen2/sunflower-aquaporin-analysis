@@ -14,7 +14,7 @@ from matplotlib.patches import FancyBboxPatch, Patch
 
 import figlib as L
 
-out_prefix = sys.argv[1] if len(sys.argv) > 1 else L.fig_path("FigS2_chromosome_map")
+out_prefix = sys.argv[1] if len(sys.argv) > 1 else L.fig_path("FigS3_chromosome_map")
 s1 = L.load_table_s1()
 chrlen = L.load_chrom_lengths()
 chrs = ["Ha%d" % i for i in range(1, 18)]

@@ -7,7 +7,8 @@ the K reference tips (At_, Os_, Sl_, Ls_) with the smallest patristic
 distance are collected and the subfamily that the majority of them carry is
 assigned. Reference subfamilies are read from the RefSeq product names in the
 reference proteome FASTA headers (e.g. "aquaporin PIP2-1", "probable
-aquaporin NIP5-1", "aquaporin SIP1-2", "nodulin-26"). The same name-based
+aquaporin NIP5-1", "aquaporin SIP1-2", "nodulin-26", "X intrinsic isoform 1",
+"X-intrinsic protein XIP1.3"). The same name-based
 call is also made for the sunflower protein itself, from the sunflower
 proteome headers, and written next to the tree-based call so the two can be
 compared.
@@ -28,7 +29,7 @@ NAME_RULES = [
     (re.compile(r"\bTIP\s?\d", re.I), "TIP"),
     (re.compile(r"\bNIP\s?\d", re.I), "NIP"),
     (re.compile(r"\bSIP\s?\d", re.I), "SIP"),
-    (re.compile(r"\bXIP\s?\d", re.I), "XIP"),
+    (re.compile(r"\bXIP\s?\d|\bX[- ]intrinsic", re.I), "XIP"),
     (re.compile(r"nodulin[- ]?26|NOD26", re.I), "NIP"),
     (re.compile(r"plasma membrane intrinsic", re.I), "PIP"),
     (re.compile(r"tonoplast intrinsic", re.I), "TIP"),

@@ -6,7 +6,7 @@ Aquaporin synteny figure.
   B  sunflower versus lettuce collinear aquaporin pairs (dual layout)
   C  sunflower versus Arabidopsis collinear aquaporin pairs (dual layout)
 
-Inputs: 07_synteny/results_v2/*_aqp_synteny.tsv, 07_synteny/data/*.gff
+Inputs: 07_synteny/results_v3/*_aqp_synteny.tsv, 07_synteny/data/*.gff
 (MCScanX gene positions), chromosome lengths, Table S1 (inventory and
 subfamily). Intra-genomic pairs are drawn only when both genes are in the
 inventory.
@@ -45,7 +45,7 @@ for sp in ("Ha", "At", "Ls"):
                 pos[f[1]] = (lab, (int(f[2]) + int(f[3])) / 2.0)
 
 def load_pairs(name):
-    rows = L.read_tsv(os.path.join(SYN, "results_v2", name))
+    rows = L.read_tsv(os.path.join(SYN, "results_v3", name))
     out = []
     for r in rows:
         out.append((r["prot1"], r["gene1"], r["species1"], r["prot2"], r["gene2"], r["species2"]))

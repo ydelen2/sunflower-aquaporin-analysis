@@ -20,7 +20,7 @@ from matplotlib.patches import Rectangle, Patch
 
 import figlib as L
 
-out_prefix = sys.argv[1] if len(sys.argv) > 1 else L.fig_path("FigS1_gene_structure_motifs")
+out_prefix = sys.argv[1] if len(sys.argv) > 1 else L.fig_path("FigS2_gene_structure_motifs")
 s1 = L.load_table_s1()
 p2g = L.load_protein_gene()
 products = L.load_products()
@@ -77,10 +77,6 @@ if meme:
             if float(s.get("pvalue")) < 1e-5 and int(s.get("motif_id").split("_")[1]) <= 10:
                 sites[name].append((int(s.get("motif_id").split("_")[1]), int(s.get("position")), motif_w[int(s.get("motif_id").split("_")[1])]))
 prot_len = {}
-for line in open(os.path.join(L.RESULTS, "02_gene_family", "03_domain_verification", "tm_helix_predictions.tsv")):
-    f = line.rstrip("\n").split("\t")
-    if f[0] != "protein_id" and len(f) > 3:
-        prot_len[f[0]] = int(f[3])
 for pth in [os.path.join(L.RESULTS, "02_gene_family", "03_domain_verification_v2", "tm_helix_predictions.tsv")]:
     if os.path.exists(pth):
         for line in open(pth):

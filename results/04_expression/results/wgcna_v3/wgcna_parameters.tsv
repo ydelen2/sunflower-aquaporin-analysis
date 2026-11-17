@@ -1,0 +1,12 @@
+samples	57
+genes	34148
+soft_threshold_power	9
+network_type	signed hybrid
+TOM_type	signed
+min_module_size	30
+merge_cut_height	0.25
+modules_excluding_unassigned	42
+genes_unassigned	2900
+aquaporin_genes_in_network	77
+aquaporin_genes_unassigned	5
+modules_with_aquaporins_excluding_unassigned	18

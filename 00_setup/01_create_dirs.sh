@@ -97,12 +97,12 @@ EOF
 # ---------------------------------------------------------------------------
 cat > "${PROJ_DIR}/metadata/bioproject_summary.tsv" <<'EOF'
 bioproject	stress_type	stress_category	tissue	genotypes	n_samples	description
-PRJNA869183	cold_heat_drought_salt	abiotic	leaf	seedling	~45	Cold 4°C (8/16/32h), Heat 39°C (4/8/16/32h), Drought PEG, Salt 150mM NaCl
-PRJNA492303	flooding	abiotic	leaf,root	HA351,RHA428	48	Flooding stress; resistant vs susceptible; 4 reps
-PRJNA1041959	drought_PEG	abiotic	leaf,root	K55,K58	24	Drought PEG; sensitive vs tolerant genotypes
-PRJNA797473	drought	abiotic	leaf	unknown	~9	Drought 0/7/14 days
-PRJNA908908	sclerotinia	biotic	leaf	unknown	~12	Sclerotinia sclerotiorum infection
-PRJNA850121	orobanche	biotic	root	unknown	36	Orobanche cumana parasitism
+PRJNA869183	cold_heat_drought_salt	abiotic	leaf	one cultivar	57	Cold 4°C (8/16/32h), heat 39°C (4/8/16/32h), drought (mild, severe), rehydration, NaCl
+PRJNA492303	flooding	abiotic	leaf,root	HA351,RHA428	96	Flooding (day 1 and day 8) and recovery (day 6); 4 replicates
+PRJNA1041959	drought	abiotic	leaf,root	K55,K58	24	Soil drought (irrigation withheld), 0 and 72 h; sensitive vs tolerant genotypes
+PRJNA797473	drought	abiotic	leaf	K55,K58	24	Drought 0/7/14/21 days
+PRJNA908908	sclerotinia	biotic	leaf	C6_DR,B728_DS	12	Sclerotinia sclerotiorum infection
+PRJNA850121	orobanche	biotic	root	HZ2399,SQ25	36	Orobanche cumana, 0, 4, 12, 24, 48 and 72 h after inoculation
 EOF
 
 log_done "Directory structure created successfully"

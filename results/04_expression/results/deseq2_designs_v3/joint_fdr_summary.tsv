@@ -1,0 +1,4 @@
+correction	calls	genes_ge1	genes_ge2	aquaporin_genes_total	genome_wide_calls
+per_contrast_BH	289	73	67	87	72312
+joint_BH_all_tests	290	73	67	87	71428
+bonferroni_over_contrasts	198	64	54	87	46835

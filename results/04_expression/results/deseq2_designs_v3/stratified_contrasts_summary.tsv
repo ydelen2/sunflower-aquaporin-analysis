@@ -1,0 +1,30 @@
+dataset	stratum_type	stratum	contrast	design	genes_tested	deg	up	down	aquaporin_deg	aquaporin_up	aquaporin_down
+PRJNA797473	genotype	K55	drought_14d_vs_control	~group	36952	8133	2964	5169	38	4	34
+PRJNA797473	genotype	K55	drought_21d_vs_control	~group	36123	6986	3160	3826	34	2	32
+PRJNA797473	genotype	K55	drought_7d_vs_control	~group	36123	6520	2665	3855	24	3	21
+PRJNA797473	genotype	K58	drought_14d_vs_control	~group	37782	12032	4874	7158	43	13	30
+PRJNA797473	genotype	K58	drought_21d_vs_control	~group	29498	1081	404	677	11	1	10
+PRJNA797473	genotype	K58	drought_7d_vs_control	~group	36952	8191	2784	5407	29	4	25
+PRJNA1041959	tissue	leaf	drought_PEG_72h_vs_control	~genotype + tc	41320	9350	3089	6261	28	4	24
+PRJNA1041959	tissue	root	drought_PEG_72h_vs_control	~genotype + tc	36989	2513	1475	1038	16	3	13
+PRJNA1041959	genotype	K55	drought_PEG_72h_vs_control	~tissue + gc	38712	4993	1778	3215	20	3	17
+PRJNA1041959	genotype	K58	drought_PEG_72h_vs_control	~tissue + gc	37850	4750	1681	3069	20	2	18
+PRJNA908908	genotype	B728_DS	sclerotinia_vs_control	~group	39009	7519	4003	3516	13	6	7
+PRJNA908908	genotype	C6_DR	sclerotinia_vs_control	~group	38252	11205	5668	5537	31	25	6
+PRJNA850121	genotype	HZ2399	parasitized_A_vs_control	~group	34458	1058	544	514	3	0	3
+PRJNA850121	genotype	HZ2399	parasitized_B_vs_control	~group	34458	1446	915	531	13	1	12
+PRJNA850121	genotype	HZ2399	parasitized_C_vs_control	~group	37190	3071	1523	1548	8	4	4
+PRJNA850121	genotype	HZ2399	parasitized_D_vs_control	~group	38097	2440	1956	484	2	1	1
+PRJNA850121	genotype	HZ2399	parasitized_E_vs_control	~group	37190	2911	1457	1454	24	2	22
+PRJNA850121	genotype	SQ25	parasitized_A_vs_control	~group	37190	1288	910	378	4	2	2
+PRJNA850121	genotype	SQ25	parasitized_B_vs_control	~group	36278	2524	1675	849	18	3	15
+PRJNA850121	genotype	SQ25	parasitized_C_vs_control	~group	36278	3806	2070	1736	7	6	1
+PRJNA850121	genotype	SQ25	parasitized_D_vs_control	~group	37190	4064	2119	1945	16	4	12
+PRJNA850121	genotype	SQ25	parasitized_E_vs_control	~group	39011	5002	3225	1777	26	5	21
+PRJNA492303	tissue	leaf	flooding_vs_control	~genotype + age + tc	31179	76	52	24	0	0	0
+PRJNA492303	tissue	root	flooding_vs_control	~genotype + age + tc	45933	1972	1109	863	9	6	3
+PRJNA492303	genotype	HA351	flooding_vs_control	~tissue + age + gc	42762	617	401	216	3	3	0
+PRJNA492303	genotype	RHA428	flooding_vs_control	~tissue + age + gc	42762	507	391	116	1	0	1
+PRJNA492303	age	d16	flooding_vs_control	~genotype + tissue + ac	43824	1006	674	332	3	3	0
+PRJNA492303	age	d24	flooding_vs_control	~genotype + tissue + ac	43824	2391	1377	1014	10	7	3
+PRJNA492303	age	d30	flooding_vs_control	~genotype + tissue + ac	40665	171	54	117	1	1	0

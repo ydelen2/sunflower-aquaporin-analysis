@@ -1,0 +1,13 @@
+class	coverage_bin	loci
+inventory	coverage_ge_0.8	85
+inventory	coverage_0.5_to_0.8	0
+inventory	coverage_0.2_to_0.5	3
+inventory	coverage_lt_0.2	1
+annotated	coverage_ge_0.8	0
+annotated	coverage_0.5_to_0.8	1
+annotated	coverage_0.2_to_0.5	11
+annotated	coverage_lt_0.2	4
+unannotated	coverage_ge_0.8	0
+unannotated	coverage_0.5_to_0.8	1
+unannotated	coverage_0.2_to_0.5	12
+unannotated	coverage_lt_0.2	4

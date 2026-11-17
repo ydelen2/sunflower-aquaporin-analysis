@@ -68,7 +68,7 @@ LOC110930648	probable aquaporin TIP-type	TIP	Ha3	2	Cold:up;Orobanche_E:down
 LOC110938010	probable aquaporin SIP2-1	SIP	Ha4	2	Drought_7d:up;Sclerotinia:up
 LOC110872387	probable aquaporin NIP5-1	NIP	Ha6	1	Drought_7d:down
 LOC110884851	probable aquaporin SIP2-1	SIP	Ha10	1	Cold:up
-LOC110885224	aquaporin	TIP	Ha10	1	PEG_72h:up
+LOC110885224	aquaporin	XIP	Ha10	1	PEG_72h:up
 LOC110890906	aquaporin PIP2-7	PIP	Ha11	1	Sclerotinia:up
 LOC110916291	probable aquaporin TIP-type RB7-5A	TIP	Ha16	1	Orobanche_E:down
 LOC110927047	aquaporin TIP1-1	TIP	Ha2	1	Drought_21d:down

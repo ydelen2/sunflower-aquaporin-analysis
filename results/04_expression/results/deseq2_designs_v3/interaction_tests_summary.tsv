@@ -1,0 +1,9 @@
+dataset	term	full_design	reduced_design	genes_tested	genes_significant	aquaporins_tested	aquaporins_significant
+PRJNA797473	genotype:condition	~genotype + condition + genotype:condition	~genotype + condition	34465	10510	69	31
+PRJNA1041959	tissue:condition	~genotype + tissue + condition + tissue:condition + genotype:condition	~genotype + tissue + condition + genotype:condition	38745	11359	70	29
+PRJNA1041959	genotype:condition	~genotype + tissue + condition + tissue:condition + genotype:condition	~genotype + tissue + condition + tissue:condition	33539	1957	66	2
+PRJNA908908	genotype:condition	~genotype + condition + genotype:condition	~genotype + condition	33714	8417	60	23
+PRJNA850121	genotype:condition	~genotype + condition + genotype:condition	~genotype + condition	38097	14175	65	28
+PRJNA492303	tissue:condition	~genotype + tissue + age + condition + tissue:condition + genotype:condition +     age:condition	~genotype + tissue + age + condition + genotype:condition + age:condition	35403	4797	65	12
+PRJNA492303	genotype:condition	~genotype + tissue + age + condition + tissue:condition + genotype:condition +     age:condition	~genotype + tissue + age + condition + tissue:condition + age:condition	54365	0	83	0
+PRJNA492303	age:condition	~genotype + tissue + age + condition + tissue:condition + genotype:condition +     age:condition	~genotype + tissue + age + condition + tissue:condition + genotype:condition	41732	4524	72	15

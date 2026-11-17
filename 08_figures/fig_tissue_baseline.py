@@ -23,10 +23,10 @@ from scipy.stats import spearmanr
 
 import figlib as L
 
-out_prefix = sys.argv[1] if len(sys.argv) > 1 else L.fig_path("FigS7_tissue_baseline")
+out_prefix = sys.argv[1] if len(sys.argv) > 1 else L.fig_path("FigS9_tissue_baseline")
 D = os.path.join(L.RESULTS, "04_expression", "results", "aquaporin_expression_v2")
 s1 = L.load_table_s1()
-SUB_ORDER = ["PIP", "TIP", "NIP", "SIP"]
+SUB_ORDER = ["PIP", "TIP", "NIP", "SIP", "XIP"]
 GROUP_ORDER = ["PRJNA869183_leaf", "PRJNA797473_leaf", "PRJNA908908_leaf", "PRJNA1041959_leaf", "PRJNA492303_leaf",
                "PRJNA1041959_root", "PRJNA492303_root", "PRJNA850121_root"]
 

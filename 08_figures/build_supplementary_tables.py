@@ -91,16 +91,16 @@ tm = {x[0]: x for x in tsv(P("02_gene_family", "03_domain_verification_v2", "tm_
 for x in rej:
     pid = x[0]
     r2.append([pid, prods.get(pid, "").replace(" [Helianthus annuus]", ""), tm.get(pid, ["", "", "", ""])[3], x[2], "fewer than four transmembrane helices predicted"])
-sheet("S2a_Excluded_Candidates", "Table S2a. Candidates with a PF00230 domain that were excluded because DeepTMHMM predicted fewer than four transmembrane helices.", h2, r2)
+sheet("S2A_Excluded_Candidates", "Table S2A. Candidates with a PF00230 domain that were excluded because DeepTMHMM predicted fewer than four transmembrane helices.", h2, r2)
 
-# S2b loci found by tblastn of the aquaporin proteins against the genome sequence
+# S2B loci found by tblastn of the aquaporin proteins against the genome sequence
 h, r = tsv(P("02_gene_family", "11_tblastn_v3", "tblastn_loci.tsv"))
 ci = h.index("sequence")
 for x in r:
     x[ci] = L.HA_CHR.get(x[ci], x[ci])
 h[ci] = "chromosome"
 n_cls = collections.Counter(x[h.index("class")] for x in r)
-sheet("S2b_tblastn_Loci", "Table S2b. Loci found by the tblastn search of the genome sequence with the %d aquaporin proteins (E-value <= 1e-10; hits on the same strand within 10 kb merged): position, best-matching protein, fraction of that protein covered, and overlap with annotated genes. Class inventory: locus of one of the 87 aquaporin genes (%d loci); annotated: overlaps another annotated gene (%d); unannotated: no gene model (%d)." % (len(sub), n_cls["inventory"], n_cls["annotated"], n_cls["unannotated"]), h, r)
+sheet("S2B_tblastn_Loci", "Table S2B. Loci found by the tblastn search of the genome sequence with the %d aquaporin proteins (E-value <= 1e-10; hits on the same strand within 10 kb merged): position, best-matching protein, fraction of that protein covered, and overlap with annotated genes. Class inventory: locus of one of the 87 aquaporin genes (%d loci); annotated: overlaps another annotated gene (%d); unannotated: no gene model (%d)." % (len(sub), n_cls["inventory"], n_cls["annotated"], n_cls["unannotated"]), h, r)
 
 # S5 physicochemical and structural features
 h, r = tsv(P("02_gene_family", "04_protein_properties_v3", "protein_properties.tsv"))
@@ -113,7 +113,7 @@ r = [[x[0], p2g.get(x[0], {}).get("gene_id", ""), sub.get(x[0], "")] + x[1:k] + 
 r.sort(key=lambda x: (x[1], x[0]))
 sheet("S5_Physicochemical", "Table S5. Physicochemical properties, NPA motifs and ar/R selectivity filter residues of the %d aquaporin protein isoforms. The two NPA motifs and the four filter positions (H2, H5, LE1, LE2) were read from the columns of the multiple sequence alignment that hold the two motifs and Phe87, His216, Thr225 and Arg231 of Arabidopsis PIP2;1 (NP_190910.1). NPA1_position and NPA2_position give the residue number of the first motif residue, NPA_spacing the distance between the two motifs; a dash marks a position that is absent from the protein." % len(r), h, r)
 
-# S7a duplication, S7c Ka/Ks (one source table)
+# S7A duplication, S7C Ka/Ks (one source table)
 h, r = tsv(P("02_gene_family", "10_duplication_synteny_v3", "duplication_synteny_class.tsv"))
 CLASS = {"tandem": "tandem", "proximal": "proximal", "segmental_anchor": "segmental (collinear anchor pair)",
          "segmental_in_block": "segmental (matching positions in one collinear block)", "dispersed": "dispersed"}
@@ -122,14 +122,14 @@ for x in r:
     x[ti] = CLASS[x[si]]
 h[ti] = "duplication_class"
 drop = ("aligned_codons", "Ka", "Ks", "Ka_Ks", "selection", "note", "synteny_class")
-sheet("S7a_Duplication", "Table S7a. Paralogous aquaporin gene pairs (protein identity >= 70%%, query coverage >= 70%%; one pair per gene pair) and their duplication class (tandem <= 200 kb, proximal 200 kb to 1 Mb on the same chromosome; other pairs segmental when supported by a collinear block, as an anchor pair or at matching positions inside one block, and dispersed otherwise; block_id and block_anchors give the MCScanX block and its number of anchor pairs); n = %d." % len(r),
+sheet("S7A_Duplication", "Table S7A. Paralogous aquaporin gene pairs (protein identity >= 70%%, query coverage >= 70%%; one pair per gene pair) and their duplication class (tandem <= 200 kb, proximal 200 kb to 1 Mb on the same chromosome; other pairs segmental when supported by a collinear block, as an anchor pair or at matching positions inside one block, and dispersed otherwise; block_id and block_anchors give the MCScanX block and its number of anchor pairs); n = %d." % len(r),
       [c for c in h if c not in drop],
       [[v for c, v in zip(h, x) if c not in drop] for x in r])
-sheet("S7c_Ka_Ks", "Table S7c. Ka, Ks and Ka/Ks (Nei-Gojobori with Jukes-Cantor correction) for the same pairs; NA where fewer than 30 codons aligned, synonymous sites were saturated or Ks was zero.",
+sheet("S7C_Ka_Ks", "Table S7C. Ka, Ks and Ka/Ks (Nei-Gojobori with Jukes-Cantor correction) for the same pairs; NA where fewer than 30 codons aligned, synonymous sites were saturated or Ks was zero.",
       ["gene1", "gene2", "protein1", "protein2", "duplication_class", "aligned_codons", "Ka", "Ks", "Ka_Ks", "selection", "note"],
       [[x[h.index(c)] for c in ["gene1", "gene2", "protein1", "protein2", "duplication_class", "aligned_codons", "Ka", "Ks", "Ka_Ks", "selection", "note"]] for x in r])
 
-# S7b synteny
+# S7B synteny
 rows = []
 for comp, fn, label in (("Ha_self", "Ha_self_intra_aqp_synteny.tsv", "Intra-genomic"), ("Ha_Ls", "Ha_Ls_inter_aqp_synteny.tsv", "Interspecies"), ("Ha_At", "Ha_At_inter_aqp_synteny.tsv", "Interspecies")):
     h, r = tsv(P("07_synteny", "results_v3", fn))
@@ -138,7 +138,7 @@ for comp, fn, label in (("Ha_self", "Ha_self_intra_aqp_synteny.tsv", "Intra-geno
         if label == "Interspecies" and d["species1"] == d["species2"]:
             continue
         rows.append([comp, label, L.chr_label(d["chr1"]) or d["chr1"], L.chr_label(d["chr2"]) or d["chr2"], d["species1"], d["gene1"], d["prot1"], d["species2"], d["gene2"], d["prot2"]])
-sheet("S7b_Synteny", "Table S7b. Collinear aquaporin gene pairs from MCScanX: intra-genomic pairs (both genes in the inventory) and interspecies pairs with lettuce and Arabidopsis (sunflower member in the inventory); n = %d." % len(rows),
+sheet("S7B_Synteny", "Table S7B. Collinear aquaporin gene pairs from MCScanX: intra-genomic pairs (both genes in the inventory) and interspecies pairs with lettuce and Arabidopsis (sunflower member in the inventory); n = %d." % len(rows),
       ["Comparison", "Type", "Chr1", "Chr2", "Species1", "Gene1", "Protein1", "Species2", "Gene2", "Protein2"], rows)
 
 # S8 DEG matrix
@@ -178,10 +178,10 @@ for x in r:
         x[3] = "The first analysis used an arbitrary block of 46 consecutive runs in which HA351 occurred only among controls; the experiment is balanced (2 genotypes x 2 treatments x 2 tissues x 3 ages x 4 replicates)"
         x[4] = "Flooding 1,671 -> %s genome-wide DEGs (%s up, %s down); aquaporin DEGs 5 -> 3" % (s[3], s[4], s[5])
     if x[0] == "PRJNA869183":
-        x[2] = "~group, fitted separately for each contrast on the libraries of its two groups (Table S3b)"
-sheet("S3a_Design_Rationale", "Table S3a. DESeq2 design rationale and correction summary for all six BioProjects.", h, r)
+        x[2] = "~group, fitted separately for each contrast on the libraries of its two groups (Table S3B)"
+sheet("S3A_Design_Rationale", "Table S3A. DESeq2 design rationale and correction summary for all six BioProjects.", h, r)
 
-# S3b contrasts, groups and replicates; DEG numbers are those of the fits in 10_deseq2_designs_v3.sh
+# S3B contrasts, groups and replicates; DEG numbers are those of the fits in 10_deseq2_designs_v3.sh
 V3 = lambda f: P("04_expression", "results", "deseq2_designs_v3", f)
 h, r = tsv(os.path.join(L.ROOT, "04_expression", "contrast_definitions.tsv"))
 rh, rr = tsv(V3("reproduction_report.tsv"))
@@ -200,22 +200,22 @@ for x in r:
     k = KEY.get(d["label"], "parasitized_" + d["label"][-1])
     g = rep[(d["bioproject"], k)]
     rows.append(x + [g["tested_new"], g["deg_new"], g["up_new"], g["down_new"], aq[d["label"]][3], aq[d["label"]][1], aq[d["label"]][2]])
-sheet("S3b_Contrasts_Replicates", "Table S3b. The %d contrasts: model, groups compared, number of libraries per group and biological replicates, with the genome-wide and aquaporin DEG numbers (|log2FC| > 1, adjusted P < 0.05). The fits were re-run from the count matrix and reproduce the DEG tables used in the paper. In the flooding contrast of PRJNA492303 the treated libraries of the third sampling time (d30) come from plants on the sixth day of recovery after flooding." % len(rows),
+sheet("S3B_Contrasts_Replicates", "Table S3B. The %d contrasts: model, groups compared, number of libraries per group and biological replicates, with the genome-wide and aquaporin DEG numbers (|log2FC| > 1, adjusted P < 0.05). The fits were re-run from the count matrix and reproduce the DEG tables used in the paper. In the flooding contrast of PRJNA492303 the treated libraries of the third sampling time (d30) come from plants on the sixth day of recovery after flooding." % len(rows),
       h + ["genes_tested", "DEGs", "DEGs_up", "DEGs_down", "aquaporin_DEGs", "aquaporin_up", "aquaporin_down"], rows)
 
-# S3c interaction tests, S3d treatment contrasts within genotype, tissue or age
+# S3C interaction tests, S3D treatment contrasts within genotype, tissue or age
 h, r = tsv(V3("interaction_tests_summary.tsv"))
 r = [[re.sub(r" {2,}", " ", v) for v in x] for x in r]      # the formula text holds runs of blanks from deparse()
-sheet("S3c_Interaction_Tests", "Table S3c. Likelihood-ratio tests of the interaction of treatment with genotype, tissue or plant age (full model against the model without the tested term; Benjamini-Hochberg adjusted P < 0.05), genome-wide and for the aquaporin genes. In PRJNA492303 the ages d16, d24 and d30 are the three sampling times: the first and the eighth day of flooding and the sixth day of recovery after flooding.", h, r)
+sheet("S3C_Interaction_Tests", "Table S3C. Likelihood-ratio tests of the interaction of treatment with genotype, tissue or plant age (full model against the model without the tested term; Benjamini-Hochberg adjusted P < 0.05), genome-wide and for the aquaporin genes. In PRJNA492303 the ages d16, d24 and d30 are the three sampling times: the first and the eighth day of flooding and the sixth day of recovery after flooding.", h, r)
 h, r = tsv(V3("stratified_contrasts_summary.tsv"))
-sheet("S3d_Stratified_Contrasts", "Table S3d. Treatment contrasts estimated within each genotype, tissue or plant age (Wald test in a model in which treatment is combined with that factor; |log2FC| > 1, adjusted P < 0.05), genome-wide and for the aquaporin genes. In PRJNA492303 the ages d16, d24 and d30 are the three sampling times: the first and the eighth day of flooding and the sixth day of recovery after flooding.", h, r)
+sheet("S3D_Stratified_Contrasts", "Table S3D. Treatment contrasts estimated within each genotype, tissue or plant age (Wald test in a model in which treatment is combined with that factor; |log2FC| > 1, adjusted P < 0.05), genome-wide and for the aquaporin genes. In PRJNA492303 the ages d16, d24 and d30 are the three sampling times: the first and the eighth day of flooding and the sixth day of recovery after flooding.", h, r)
 
-# S3e per-contrast and joint multiple-testing correction for the aquaporin genes
+# S3E per-contrast and joint multiple-testing correction for the aquaporin genes
 h, r = tsv(V3("joint_fdr_aquaporin.tsv"))
 jh, jr = tsv(V3("joint_fdr_summary.tsv"))
 js = {x[0]: dict(zip(jh, x)) for x in jr}
 r.sort(key=lambda x: (x[0], x[1]))
-sheet("S3e_Multiple_Testing", "Table S3e. Aquaporin results under three corrections for multiple testing: padj, Benjamini-Hochberg within the contrast (de_within); padj_joint, one Benjamini-Hochberg correction over all tests of the 16 contrasts (de_joint); de_bonferroni_contrasts, padj < 0.05/16. A call also requires |log2FC| > 1. Genes with at least one call: %s, %s and %s of %s." % (
+sheet("S3E_Multiple_Testing", "Table S3E. Aquaporin results under three corrections for multiple testing: padj, Benjamini-Hochberg within the contrast (de_within); padj_joint, one Benjamini-Hochberg correction over all tests of the 16 contrasts (de_joint); de_bonferroni_contrasts, padj < 0.05/16. A call also requires |log2FC| > 1. Genes with at least one call: %s, %s and %s of %s." % (
           js["per_contrast_BH"]["genes_ge1"], js["joint_BH_all_tests"]["genes_ge1"], js["bonferroni_over_contrasts"]["genes_ge1"], js["per_contrast_BH"]["aquaporin_genes_total"]), h, r)
 
 # S13 baseline TPM of the control libraries by BioProject and tissue

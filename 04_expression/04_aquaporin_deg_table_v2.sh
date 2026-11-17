@@ -89,7 +89,7 @@ print("aquaporin genes:", len(gid))
 files = sorted(glob.glob(os.path.join(deseq, "*", "DEG_*_vs_*.tsv")))
 files = [f for f in files if "DEG_sig_" not in os.path.basename(f)]
 # the corrected designs live in <project>_fixed directories; when one exists the
-# uncorrected <project> directory is ignored (Additional file 1: Table S3a)
+# uncorrected <project> directory is ignored (Additional file 1: Table S3A)
 dirs = {os.path.basename(os.path.dirname(f)) for f in files}
 fixed = {d[:-6] for d in dirs if d.endswith("_fixed")}
 files = [f for f in files if os.path.basename(os.path.dirname(f)) not in fixed]

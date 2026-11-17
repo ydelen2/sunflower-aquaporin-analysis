@@ -7,7 +7,8 @@ usage: python build_supplementary_tables.py
 """
 import os, re, sys, csv, collections
 import openpyxl
-from openpyxl.styles import Font
+from openpyxl.styles import Alignment, Font
+from openpyxl.utils import get_column_letter
 import figlib as L
 
 OUT = os.path.join(L.ROOT, "tables_and_figures", "supplementary_tables", "Supplementary_Tables.xlsx")
@@ -67,6 +68,13 @@ def sheet(name, title, header, rows, note=None):
     for i, r in enumerate(rows, 4):
         for j, v in enumerate(r, 1):
             ws.cell(i, j, num(v))
+    # column widths from the longest entry of each column; long text is wrapped
+    for j, h in enumerate(header, 1):
+        w = max([len(str(h))] + [len(str(r[j - 1])) for r in rows[:1000] if j - 1 < len(r) and r[j - 1] is not None])
+        ws.column_dimensions[get_column_letter(j)].width = min(w + 2, 60)
+        if w > 60:
+            for i in range(4, len(rows) + 4):
+                ws.cell(i, j).alignment = Alignment(wrap_text=True, vertical="top")
     ws.freeze_panes = "A4"
     return ws
 

@@ -20,8 +20,7 @@
 # highest bit score is taken, and the subject protein is replaced by its TAIR
 # locus identifier. Hits to organelle-encoded proteins and to proteins without
 # a nuclear TAIR locus identifier, and sunflower organelle genes, are not
-# mapped. This step is not part of the script; all 37,119 genes of the table
-# follow the rule.
+# mapped. This gene-level step is not part of the script.
 #
 # Output
 #   02_gene_family/results/sunflower_to_arabidopsis_blast.tsv

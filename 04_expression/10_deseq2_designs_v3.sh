@@ -15,9 +15,8 @@
 # Part A  Re-fits every design from the raw count matrix and compares the
 #         result with the stored per-contrast tables
 #         (04_expression/results/deseq2/<project>[_fixed]/DEG_*.tsv). For
-#         PRJNA869183, whose grouping was not kept in a script, several
-#         candidate groupings are fitted and the one that reproduces the
-#         stored table is reported.
+#         PRJNA869183 several groupings of the libraries are fitted and the
+#         one that reproduces the stored table is reported.
 # Part B  Tests whether the treatment response depends on genotype, tissue or
 #         plant age in the datasets that have these factors: likelihood-ratio
 #         tests of the interaction terms and treatment contrasts within each

@@ -13,10 +13,8 @@
 # =============================================================================
 # 06_featurecounts_492303_v2.sh
 # Gene-level counts for PRJNA492303, one BAM per array task, with the settings of
-# 06_featurecounts.sh (-p --countReadPairs -s 0 -g gene_name -t exon). Counting
-# the 96 BAMs in one process took about 28 min per BAM because paired reads are
-# re-sorted internally, so the work is split across tasks; 06b_merge_counts_492303_v2.sh
-# joins the per-sample files into one matrix afterwards.
+# 06_featurecounts.sh (-p --countReadPairs -s 0 -g gene_name -t exon).
+# 06b_merge_counts_492303_v2.sh joins the per-run files into one matrix.
 # Output: counts/PRJNA492303_fc/<run>.txt (+ .summary)
 # =============================================================================
 set -eo pipefail

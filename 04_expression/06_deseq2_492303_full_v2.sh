@@ -101,7 +101,7 @@ pdf(file.path(plot_dir, paste0("MA_", contrast_name, ".pdf")), width = 8, height
 plotMA(res, main = paste0("MA plot: ", contrast_name), ylim = c(-5, 5))
 dev.off()
 
-# design note for the records
+# design and contrast of this run
 writeLines(c("PRJNA492303 full design: 96 runs, ~ genotype + tissue + age + condition",
              "contrast: condition flooding vs control",
              paste0("run on ", format(Sys.time(), "%Y-%m-%d"))),

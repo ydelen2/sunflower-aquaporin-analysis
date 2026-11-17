@@ -37,7 +37,6 @@ mkdir -p "${RESULTS_DIR}" "${LOG_DIR}"
 SUNFLOWER_AQP="${GENE_FAM_DIR}/aquaporin_proteins.fa"
 
 # Reference aquaporin sequences (one FASTA per species, pre-curated)
-# Expected: Arabidopsis (~35), rice (~33), tomato (~30), lettuce (~35)
 AT_REF="${REF_DIR}/arabidopsis_aquaporins.fa"
 OS_REF="${REF_DIR}/rice_aquaporins.fa"
 SL_REF="${REF_DIR}/tomato_aquaporins.fa"

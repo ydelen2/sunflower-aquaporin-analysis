@@ -408,7 +408,7 @@ for (proj in projects) {
 # 5. Cross-project normalized counts merge (for downstream scripts)
 ###############################################################################
 
-# Merge all normalized counts (note: cross-project normalization is separate)
+# Merge the normalized counts of all projects (each project is normalized separately)
 all_norm <- list()
 for (proj in names(project_results)) {
     nf <- file.path(RESULTS_DIR, proj, "normalized_counts.rds")

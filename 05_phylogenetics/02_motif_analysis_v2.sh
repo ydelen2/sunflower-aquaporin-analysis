@@ -72,8 +72,8 @@ meme "${INPUT_FA}" \
     -p "${SLURM_NTASKS_PER_NODE}" \
     -nostatus \
     2>&1 | tee "${LOG_DIR}/meme_${SLURM_JOB_ID}.log" || true
-# "|| true": the MEME module on this cluster fails in meme_xml_to_html (missing Perl
-# XML::Parser::Expat) after meme.txt and meme.xml are complete; the HTML report is unused.
+# "|| true": meme_xml_to_html of the cluster module needs the Perl module XML::Parser::Expat;
+# meme.txt and meme.xml are complete before that step, and the HTML report is not used.
 
 echo "[$(date '+%H:%M:%S')] MEME completed."
 

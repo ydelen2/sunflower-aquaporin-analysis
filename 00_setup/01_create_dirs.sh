@@ -77,19 +77,14 @@ for bp in "${BIOPROJECTS[@]}"; do
     fi
 done
 
-# PRJNA869183 metadata header with specific conditions
+# PRJNA869183 metadata header
 cat > "${PROJ_DIR}/metadata/PRJNA869183_samples.tsv" <<'EOF'
 sample_id	sra_accession	bioproject	condition	tissue	genotype	time_point	replicate
-# cold_8h_rep1	SRR21038001	PRJNA869183	cold_4C	leaf	seedling	8h	1
-# Fill in actual accessions after SRA query
 EOF
 
 # PRJNA492303 metadata
 cat > "${PROJ_DIR}/metadata/PRJNA492303_samples.tsv" <<'EOF'
 sample_id	sra_accession	bioproject	condition	tissue	genotype	time_point	replicate
-# flooding_HA351_leaf_rep1	SRR7837001	PRJNA492303	flooding	leaf	HA351_resistant	NA	1
-# flooding_RHA428_root_rep1	SRR7837005	PRJNA492303	flooding	root	RHA428_susceptible	NA	1
-# Fill in actual accessions after SRA query
 EOF
 
 # ---------------------------------------------------------------------------

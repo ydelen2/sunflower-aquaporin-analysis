@@ -45,9 +45,8 @@ HMM_EVALUE="1e-5"
 
 # ---------------------------------------------------------------------------
 # Modules
-# The pinned versions are the ones used for the analysis. If the
-# cluster has retired a version, fall back to the unversioned module so the
-# job does not die at submission time.
+# The pinned versions are the ones used for the analysis. If a pinned
+# version is not available, the unversioned module is loaded.
 # ---------------------------------------------------------------------------
 module purge
 
